@@ -13,8 +13,9 @@ import MainCard from 'ui-component/cards/MainCard';
 import SkeletonTotalOrderCard from 'ui-component/cards/Skeleton/EarningCard';
 
 // assets
-import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import CardGiftcardRoundedIcon from '@mui/icons-material/CardGiftcardRounded';
+import WarehouseOutlinedIcon from '@mui/icons-material/WarehouseOutlined';
+import GiftIcon from 'assets/images/icons/gift.svg';
 
 const CardWrapper = styled(MainCard)(({ theme }) => ({
     backgroundColor: theme.palette.error.light,
@@ -85,11 +86,10 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
                                                 ...theme.typography.commonAvatar,
                                                 ...theme.typography.largeAvatar,
                                                 backgroundColor: theme.palette.error.light,
-                                                color: '#fff',
                                                 mt: 1
                                             }}
                                         >
-                                            <LocalMallOutlinedIcon fontSize="inherit" />
+                                            <img src={GiftIcon} alt="Gift" />
                                         </Avatar>
                                     </Grid>
                                 </Grid>

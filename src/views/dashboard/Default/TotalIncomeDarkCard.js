@@ -10,6 +10,7 @@ import TotalIncomeCard from 'ui-component/cards/Skeleton/TotalIncomeCard';
 
 // assets
 import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
+import AccessTimeRoundedIcon from '@mui/icons-material/AccessTimeRounded';
 
 // styles
 const CardWrapper = styled(MainCard)(({ theme }) => ({
@@ -63,7 +64,7 @@ const TotalIncomeDarkCard = ({ isLoading }) => {
                                             color: '#fff'
                                         }}
                                     >
-                                        <TableChartOutlinedIcon fontSize="inherit" />
+                                        <AccessTimeRoundedIcon fontSize="inherit" />
                                     </Avatar>
                                 </ListItemAvatar>
                                 <ListItemText

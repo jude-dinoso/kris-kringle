@@ -132,7 +132,7 @@ const PopularCard = ({ isLoading }) => {
                                     </Grid>
                                     <Grid item>
                                         <Typography variant="subtitle2" sx={{ color: 'green' }}>
-                                            Pink > Blue > White > RSJ > ESJ > BSJ
+                                            Pink > Blue > White > RSJ > ESJ > CSJ
                                         </Typography>
                                     </Grid>
                                 </Grid>

@@ -89,7 +89,7 @@ const EarningCard = ({ isLoading }) => {
                                                 mt: 1
                                             }}
                                         >
-                                            <img src={EarningIcon} alt="Notification" />
+                                            <img src={EarningIcon} alt="Christmas Tree" />
                                         </Avatar>
                                     </Grid>
                                 </Grid>
