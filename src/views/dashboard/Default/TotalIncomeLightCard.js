@@ -15,6 +15,7 @@ import VolunteerActivismRoundedIcon from '@mui/icons-material/VolunteerActivismR
 // styles
 const CardWrapper = styled(MainCard)(({ theme }) => ({
     backgroundColor: 'pink',
+    color: '#fff',
     overflow: 'hidden',
     position: 'relative',
     '&:after': {
@@ -59,8 +60,8 @@ const TotalIncomeLightCard = ({ isLoading }) => {
                                         sx={{
                                             ...theme.typography.commonAvatar,
                                             ...theme.typography.largeAvatar,
-                                            backgroundColor: theme.palette.grey[50],
-                                            color: theme.palette.grey[500]
+                                            backgroundColor: '#E75480',
+                                            color: theme.palette.grey[50]
                                         }}
                                     >
                                         <VolunteerActivismRoundedIcon fontSize="inherit" />
