@@ -7,6 +7,7 @@ import { Grid } from '@mui/material';
 import EarningCard from './EarningCard';
 import PopularCard from './PopularCard';
 import TeamsCard from './TeamsCard';
+import LoginCard from './LoginCard';
 import TotalOrderLineChartCard from './TotalOrderLineChartCard';
 import TotalIncomeDarkCard from './TotalIncomeDarkCard';
 import TotalIncomeLightCard from './TotalIncomeLightCard';
@@ -48,6 +49,9 @@ const Dashboard = () => {
                         <TeamsCard isLoading={isLoading} />
                     </Grid>
                     <Grid item xs={12} md={4}>
+                        <LoginCard isLoading={isLoading} />
+                    </Grid>
+                    <Grid item xs={12} md={8}>
                         <PopularCard isLoading={isLoading} />
                     </Grid>
                 </Grid>
