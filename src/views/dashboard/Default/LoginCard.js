@@ -14,6 +14,7 @@ import {
     Divider,
     FormControl,
     FormControlLabel,
+    FormHelperText,
     Grid,
     IconButton,
     InputAdornment,
@@ -37,6 +38,8 @@ import AnimateButton from 'ui-component/extended/AnimateButton';
 // third party
 import * as Yup from 'yup';
 import { Formik } from 'formik';
+import axios from 'axios';
+
 // assets
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
@@ -62,6 +65,19 @@ const LoginCard = ({ isLoading }) => {
         setAnchorEl(null);
     };
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        axios
+            .post('https://kris-kringle-backend.herokuapp.com/login', {
+                first_name: 'Pam',
+                password: '888'
+            })
+            .then(function (response) {
+                console.log(response);
+            });
+    };
+
     return (
         <>
             {isLoading ? (
@@ -71,20 +87,25 @@ const LoginCard = ({ isLoading }) => {
                     <CardContent>
                         <Formik
                             initialValues={{
-                                email: 'Lita',
-                                password: '123',
+                                email: 'Pam',
+                                password: '',
                                 submit: null
                             }}
                             validationSchema={Yup.object().shape({
-                                email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
                                 password: Yup.string().max(255).required('Password is required')
                             })}
                             onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                                 try {
-                                    if (scriptedRef.current) {
-                                        setStatus({ success: true });
-                                        setSubmitting(false);
-                                    }
+                                    axios
+                                        .post('https://kris-kringle-backend.herokuapp.com/login', null, {
+                                            params: {
+                                                first_name: values.email,
+                                                password: values.password
+                                            }
+                                        })
+                                        .then(function (response) {
+                                            console.log(response);
+                                        });
                                 } catch (err) {
                                     console.error(err);
                                     if (scriptedRef.current) {
@@ -113,6 +134,7 @@ const LoginCard = ({ isLoading }) => {
                                             <MenuItem value="Lita">Lita</MenuItem>
                                             <MenuItem value="Resty">Resty</MenuItem>
                                             <MenuItem value="Nita">Nita</MenuItem>
+                                            <MenuItem value="Pam">Pam</MenuItem>
                                         </Select>
                                     </FormControl>
 
