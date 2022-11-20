@@ -21,6 +21,7 @@ import {
     Menu,
     MenuItem,
     OutlinedInput,
+    Select,
     Stack,
     Typography,
     useMediaQuery
@@ -49,9 +50,6 @@ const LoginCard = ({ isLoading }) => {
 
     const [anchorEl, setAnchorEl] = useState(null);
 
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
     const [showPassword, setShowPassword] = useState(false);
     const handleClickShowPassword = () => {
         setShowPassword(!showPassword);
@@ -73,8 +71,8 @@ const LoginCard = ({ isLoading }) => {
                     <CardContent>
                         <Formik
                             initialValues={{
-                                email: 'info@codedthemes.com',
-                                password: '123456',
+                                email: 'Lita',
+                                password: '123',
                                 submit: null
                             }}
                             validationSchema={Yup.object().shape({
@@ -99,27 +97,23 @@ const LoginCard = ({ isLoading }) => {
                         >
                             {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
                                 <form noValidate onSubmit={handleSubmit}>
-                                    <FormControl
-                                        fullWidth
-                                        error={Boolean(touched.email && errors.email)}
-                                        sx={{ ...theme.typography.customInput }}
-                                    >
-                                        <InputLabel htmlFor="outlined-adornment-email-login">Email Address / Username</InputLabel>
-                                        <OutlinedInput
+                                    <FormControl fullWidth sx={{ ...theme.typography.customInput }}>
+                                        <InputLabel htmlFor="outlined-adornment-email-login">SJ Family Member</InputLabel>
+                                        <Select
                                             id="outlined-adornment-email-login"
                                             type="email"
                                             value={values.email}
                                             name="email"
                                             onBlur={handleBlur}
                                             onChange={handleChange}
-                                            label="Email Address / Username"
+                                            label="SJ Family Member"
                                             inputProps={{}}
-                                        />
-                                        {touched.email && errors.email && (
-                                            <FormHelperText error id="standard-weight-helper-text-email-login">
-                                                {errors.email}
-                                            </FormHelperText>
-                                        )}
+                                            sx={{ paddingTop: 2 }}
+                                        >
+                                            <MenuItem value="Lita">Lita</MenuItem>
+                                            <MenuItem value="Resty">Resty</MenuItem>
+                                            <MenuItem value="Nita">Nita</MenuItem>
+                                        </Select>
                                     </FormControl>
 
                                     <FormControl
@@ -127,7 +121,7 @@ const LoginCard = ({ isLoading }) => {
                                         error={Boolean(touched.password && errors.password)}
                                         sx={{ ...theme.typography.customInput }}
                                     >
-                                        <InputLabel htmlFor="outlined-adornment-password-login">Password</InputLabel>
+                                        <InputLabel htmlFor="outlined-adornment-password-login">3-Digit Passcode</InputLabel>
                                         <OutlinedInput
                                             id="outlined-adornment-password-login"
                                             type={showPassword ? 'text' : 'password'}
@@ -157,26 +151,6 @@ const LoginCard = ({ isLoading }) => {
                                             </FormHelperText>
                                         )}
                                     </FormControl>
-                                    <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={1}>
-                                        <FormControlLabel
-                                            control={
-                                                <Checkbox
-                                                    checked={checked}
-                                                    onChange={(event) => setChecked(event.target.checked)}
-                                                    name="checked"
-                                                    color="primary"
-                                                />
-                                            }
-                                            label="Remember me"
-                                        />
-                                        <Typography
-                                            variant="subtitle1"
-                                            color="secondary"
-                                            sx={{ textDecoration: 'none', cursor: 'pointer' }}
-                                        >
-                                            Forgot Password?
-                                        </Typography>
-                                    </Stack>
                                     {errors.submit && (
                                         <Box sx={{ mt: 3 }}>
                                             <FormHelperText error>{errors.submit}</FormHelperText>
