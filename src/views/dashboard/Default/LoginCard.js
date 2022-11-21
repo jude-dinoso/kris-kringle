@@ -88,7 +88,7 @@ const LoginCard = ({ isLoading }) => {
                         <Formik
                             initialValues={{
                                 email: 'Pam',
-                                password: '',
+                                password: '888',
                                 submit: null
                             }}
                             validationSchema={Yup.object().shape({
