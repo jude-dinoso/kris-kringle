@@ -20,10 +20,10 @@ const dashboard = {
             breadcrumbs: false
         },
         {
-            id: 'sample-page',
+            id: 'kris-kringle',
             title: 'Kris Kringle',
             type: 'item',
-            url: '/sample-page',
+            url: '/kris-kringle',
             icon: icons.IconGift,
             breadcrumbs: false
         }
