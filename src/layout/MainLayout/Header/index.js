@@ -57,7 +57,6 @@ const Header = ({ handleLeftDrawerToggle }) => {
             <Box sx={{ flexGrow: 1 }} />
 
             {/* put sj logo here */}
-            <ProfileSection />
         </>
     );
 };
