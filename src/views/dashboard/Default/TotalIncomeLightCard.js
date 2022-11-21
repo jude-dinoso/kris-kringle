@@ -10,9 +10,12 @@ import TotalIncomeCard from 'ui-component/cards/Skeleton/TotalIncomeCard';
 
 // assets
 import StorefrontTwoToneIcon from '@mui/icons-material/StorefrontTwoTone';
+import VolunteerActivismRoundedIcon from '@mui/icons-material/VolunteerActivismRounded';
 
 // styles
 const CardWrapper = styled(MainCard)(({ theme }) => ({
+    backgroundColor: 'pink',
+    color: '#fff',
     overflow: 'hidden',
     position: 'relative',
     '&:after': {
@@ -20,7 +23,7 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
         position: 'absolute',
         width: 210,
         height: 210,
-        background: `linear-gradient(210.04deg, ${theme.palette.warning.dark} -50.94%, rgba(144, 202, 249, 0) 83.49%)`,
+        background: `linear-gradient(210.04deg, ${theme.palette.grey[50]} -50.94%, rgba(144, 202, 249, 0) 83.49%)`,
         borderRadius: '50%',
         top: -30,
         right: -180
@@ -30,7 +33,7 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
         position: 'absolute',
         width: 210,
         height: 210,
-        background: `linear-gradient(140.9deg, ${theme.palette.warning.dark} -14.02%, rgba(144, 202, 249, 0) 70.50%)`,
+        background: `linear-gradient(140.9deg, ${theme.palette.grey[50]} -14.02%, rgba(144, 202, 249, 0) 70.50%)`,
         borderRadius: '50%',
         top: -160,
         right: -130
@@ -57,11 +60,11 @@ const TotalIncomeLightCard = ({ isLoading }) => {
                                         sx={{
                                             ...theme.typography.commonAvatar,
                                             ...theme.typography.largeAvatar,
-                                            backgroundColor: theme.palette.warning.light,
-                                            color: theme.palette.warning.dark
+                                            backgroundColor: '#E75480',
+                                            color: theme.palette.grey[50]
                                         }}
                                     >
-                                        <StorefrontTwoToneIcon fontSize="inherit" />
+                                        <VolunteerActivismRoundedIcon fontSize="inherit" />
                                     </Avatar>
                                 </ListItemAvatar>
                                 <ListItemText
@@ -70,16 +73,20 @@ const TotalIncomeLightCard = ({ isLoading }) => {
                                         mt: 0.45,
                                         mb: 0.45
                                     }}
-                                    primary={<Typography variant="h4">$203k</Typography>}
+                                    primary={
+                                        <Typography variant="h4" color="white">
+                                            ESJ
+                                        </Typography>
+                                    }
                                     secondary={
                                         <Typography
                                             variant="subtitle2"
                                             sx={{
-                                                color: theme.palette.grey[500],
+                                                color: theme.palette.grey[50],
                                                 mt: 0.5
                                             }}
                                         >
-                                            Total Income
+                                            Host
                                         </Typography>
                                     }
                                 />

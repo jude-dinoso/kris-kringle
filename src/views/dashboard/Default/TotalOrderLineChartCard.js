@@ -12,15 +12,13 @@ import Chart from 'react-apexcharts';
 import MainCard from 'ui-component/cards/MainCard';
 import SkeletonTotalOrderCard from 'ui-component/cards/Skeleton/EarningCard';
 
-import ChartDataMonth from './chart-data/total-order-month-line-chart';
-import ChartDataYear from './chart-data/total-order-year-line-chart';
-
 // assets
-import LocalMallOutlinedIcon from '@mui/icons-material/LocalMallOutlined';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import CardGiftcardRoundedIcon from '@mui/icons-material/CardGiftcardRounded';
+import WarehouseOutlinedIcon from '@mui/icons-material/WarehouseOutlined';
+import GiftIcon from 'assets/images/icons/gift.svg';
 
 const CardWrapper = styled(MainCard)(({ theme }) => ({
-    backgroundColor: theme.palette.primary.dark,
+    backgroundColor: theme.palette.error.light,
     color: '#fff',
     overflow: 'hidden',
     position: 'relative',
@@ -33,7 +31,7 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
         position: 'absolute',
         width: 210,
         height: 210,
-        background: theme.palette.primary[800],
+        background: theme.palette.error.dark,
         borderRadius: '50%',
         zIndex: 1,
         top: -85,
@@ -49,7 +47,7 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
         zIndex: 1,
         width: 210,
         height: 210,
-        background: theme.palette.primary[800],
+        background: theme.palette.grey[200],
         borderRadius: '50%',
         top: -125,
         right: -15,
@@ -87,78 +85,36 @@ const TotalOrderLineChartCard = ({ isLoading }) => {
                                             sx={{
                                                 ...theme.typography.commonAvatar,
                                                 ...theme.typography.largeAvatar,
-                                                backgroundColor: theme.palette.primary[800],
-                                                color: '#fff',
+                                                backgroundColor: theme.palette.error.light,
                                                 mt: 1
                                             }}
                                         >
-                                            <LocalMallOutlinedIcon fontSize="inherit" />
+                                            <img src={GiftIcon} alt="Gift" />
                                         </Avatar>
-                                    </Grid>
-                                    <Grid item>
-                                        <Button
-                                            disableElevation
-                                            variant={timeValue ? 'contained' : 'text'}
-                                            size="small"
-                                            sx={{ color: 'inherit' }}
-                                            onClick={(e) => handleChangeTime(e, true)}
-                                        >
-                                            Month
-                                        </Button>
-                                        <Button
-                                            disableElevation
-                                            variant={!timeValue ? 'contained' : 'text'}
-                                            size="small"
-                                            sx={{ color: 'inherit' }}
-                                            onClick={(e) => handleChangeTime(e, false)}
-                                        >
-                                            Year
-                                        </Button>
                                     </Grid>
                                 </Grid>
                             </Grid>
-                            <Grid item sx={{ mb: 0.75 }}>
+                            <Grid item sx={{ mb: 1.25 }}>
                                 <Grid container alignItems="center">
-                                    <Grid item xs={6}>
+                                    <Grid item>
                                         <Grid container alignItems="center">
                                             <Grid item>
-                                                {timeValue ? (
-                                                    <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>
-                                                        $108
-                                                    </Typography>
-                                                ) : (
-                                                    <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>
-                                                        $961
-                                                    </Typography>
-                                                )}
-                                            </Grid>
-                                            <Grid item>
-                                                <Avatar
-                                                    sx={{
-                                                        ...theme.typography.smallAvatar,
-                                                        cursor: 'pointer',
-                                                        backgroundColor: theme.palette.primary[200],
-                                                        color: theme.palette.primary.dark
-                                                    }}
-                                                >
-                                                    <ArrowDownwardIcon fontSize="inherit" sx={{ transform: 'rotate3d(1, 1, 1, 45deg)' }} />
-                                                </Avatar>
+                                                <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>
+                                                    LCS 2nd Floor
+                                                </Typography>
                                             </Grid>
                                             <Grid item xs={12}>
                                                 <Typography
                                                     sx={{
                                                         fontSize: '1rem',
                                                         fontWeight: 500,
-                                                        color: theme.palette.primary[200]
+                                                        color: theme.palette.error.dark
                                                     }}
                                                 >
-                                                    Total Order
+                                                    Venue
                                                 </Typography>
                                             </Grid>
                                         </Grid>
-                                    </Grid>
-                                    <Grid item xs={6}>
-                                        {timeValue ? <Chart {...ChartDataMonth} /> : <Chart {...ChartDataYear} />}
                                     </Grid>
                                 </Grid>
                             </Grid>
