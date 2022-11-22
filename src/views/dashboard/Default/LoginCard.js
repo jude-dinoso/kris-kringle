@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { AuthDispatchContext, signIn, signInFailure } from 'contexts/user';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -39,6 +41,7 @@ import AnimateButton from 'ui-component/extended/AnimateButton';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import axios from 'axios';
+import _get from 'lodash.get';
 
 // assets
 import Visibility from '@mui/icons-material/Visibility';
@@ -47,12 +50,12 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 const LoginCard = ({ isLoading }) => {
     const theme = useTheme();
     const scriptedRef = useScriptRef();
-    const matchDownSM = useMediaQuery(theme.breakpoints.down('md'));
-    const customization = useSelector((state) => state.customization);
-    const [checked, setChecked] = useState(true);
-
+    const navigate = useNavigate();
+    const location = useLocation();
+    const fromUrl = _get(location, 'state.from.pathname');
+    console.log('location => ', location);
     const [anchorEl, setAnchorEl] = useState(null);
-
+    const authDispatch = useContext(AuthDispatchContext);
     const [showPassword, setShowPassword] = useState(false);
     const handleClickShowPassword = () => {
         setShowPassword(!showPassword);
@@ -65,17 +68,13 @@ const LoginCard = ({ isLoading }) => {
         setAnchorEl(null);
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const signInSuccess = (userData) => {
+        signIn(authDispatch, userData);
+        navigate('/kris-kringle');
+    };
 
-        axios
-            .post('https://kris-kringle-backend.herokuapp.com/login', {
-                first_name: 'Pam',
-                password: '888'
-            })
-            .then(function (response) {
-                console.log(response);
-            });
+    const signInFail = () => {
+        signInFailure(authDispatch);
     };
 
     return (
@@ -87,25 +86,19 @@ const LoginCard = ({ isLoading }) => {
                     <CardContent>
                         <Formik
                             initialValues={{
-                                email: 'Pam',
+                                first_name: 'Pam',
                                 password: '888',
                                 submit: null
                             }}
                             validationSchema={Yup.object().shape({
                                 password: Yup.string().max(255).required('Password is required')
                             })}
-                            onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
+                            onSubmit={async (values, { resetForm, setErrors, setStatus, setSubmitting }) => {
                                 try {
-                                    axios
-                                        .post('https://kris-kringle-backend.herokuapp.com/login', null, {
-                                            params: {
-                                                first_name: values.email,
-                                                password: values.password
-                                            }
-                                        })
-                                        .then(function (response) {
-                                            console.log(response);
-                                        });
+                                    const userData = { ...values };
+                                    setSubmitting(true);
+                                    resetForm();
+                                    signInSuccess(userData);
                                 } catch (err) {
                                     console.error(err);
                                     if (scriptedRef.current) {
@@ -113,6 +106,7 @@ const LoginCard = ({ isLoading }) => {
                                         setErrors({ submit: err.message });
                                         setSubmitting(false);
                                     }
+                                    signInFail();
                                 }
                             }}
                         >
@@ -122,9 +116,9 @@ const LoginCard = ({ isLoading }) => {
                                         <InputLabel htmlFor="outlined-adornment-email-login">SJ Family Member</InputLabel>
                                         <Select
                                             id="outlined-adornment-email-login"
-                                            type="email"
-                                            value={values.email}
-                                            name="email"
+                                            type="first_name"
+                                            value={values.first_name}
+                                            name="first_name"
                                             onBlur={handleBlur}
                                             onChange={handleChange}
                                             label="SJ Family Member"
