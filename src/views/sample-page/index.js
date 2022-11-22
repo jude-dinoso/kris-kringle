@@ -11,7 +11,6 @@ import { AuthStateContext, AuthDispatchContext } from 'contexts/user';
 const SamplePage = () => {
     const [isLoading, setLoading] = useState(true);
     const { first_name, recipient } = useContext(AuthStateContext);
-    console.log(first_name, recipient, 'hello');
     useEffect(() => {
         setLoading(false);
     }, []);

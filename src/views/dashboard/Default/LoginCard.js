@@ -69,6 +69,7 @@ const LoginCard = ({ isLoading }) => {
     };
 
     const signInSuccess = (userData) => {
+        console.log('---------------------------------', userData);
         signIn(authDispatch, userData);
         navigate('/kris-kringle');
     };
@@ -96,6 +97,7 @@ const LoginCard = ({ isLoading }) => {
                             onSubmit={async (values, { resetForm, setErrors, setStatus, setSubmitting }) => {
                                 try {
                                     const userData = { ...values };
+                                    console.log('hello', userData);
                                     setSubmitting(true);
                                     resetForm();
                                     signInSuccess(userData);
@@ -116,9 +118,9 @@ const LoginCard = ({ isLoading }) => {
                                         <InputLabel htmlFor="outlined-adornment-email-login">SJ Family Member</InputLabel>
                                         <Select
                                             id="outlined-adornment-email-login"
-                                            type="email"
-                                            value={values.email}
-                                            name="email"
+                                            type="first_name"
+                                            value={values.first_name}
+                                            name="first_name"
                                             onBlur={handleBlur}
                                             onChange={handleChange}
                                             label="SJ Family Member"
