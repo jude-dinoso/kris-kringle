@@ -1,8 +1,8 @@
 {
-    "name": "berry-material-react-free",
+    "name": "sj-reunion",
     "version": "3.2.0",
     "private": true,
-    "homepage": "https://berrydashboard.io/",
+    "homepage": "https://sjreunion.vercel.app/",
     "dependencies": {
         "@emotion/cache": "^11.9.3",
         "@emotion/react": "^11.9.3",
@@ -37,7 +37,7 @@
     },
     "scripts": {
         "start": "react-scripts --openssl-legacy-provider start",
-        "build": "react-scripts build",
+        "build": "react-scripts --openssl-legacy-provider build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
