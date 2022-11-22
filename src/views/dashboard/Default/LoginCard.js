@@ -116,9 +116,9 @@ const LoginCard = ({ isLoading }) => {
                                         <InputLabel htmlFor="outlined-adornment-email-login">SJ Family Member</InputLabel>
                                         <Select
                                             id="outlined-adornment-email-login"
-                                            type="email"
-                                            value={values.email}
-                                            name="email"
+                                            type="first_name"
+                                            value={values.first_name}
+                                            name="first_name"
                                             onBlur={handleBlur}
                                             onChange={handleChange}
                                             label="SJ Family Member"
