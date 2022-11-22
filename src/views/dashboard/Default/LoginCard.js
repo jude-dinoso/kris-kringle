@@ -69,7 +69,6 @@ const LoginCard = ({ isLoading }) => {
     };
 
     const signInSuccess = (userData) => {
-        console.log('---------------------------------', userData);
         signIn(authDispatch, userData);
         navigate('/kris-kringle');
     };
@@ -97,7 +96,6 @@ const LoginCard = ({ isLoading }) => {
                             onSubmit={async (values, { resetForm, setErrors, setStatus, setSubmitting }) => {
                                 try {
                                     const userData = { ...values };
-                                    console.log('hello', userData);
                                     setSubmitting(true);
                                     resetForm();
                                     signInSuccess(userData);
