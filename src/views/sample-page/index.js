@@ -1,20 +1,36 @@
+import { useContext, useEffect, useState } from 'react';
 // material-ui
 import { Typography } from '@mui/material';
-
+import { Grid } from '@mui/material';
+import LoginCard from 'views/dashboard/Default/LoginCard';
+import { gridSpacing } from 'store/constant';
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
+import { AuthStateContext, AuthDispatchContext } from 'contexts/user';
 
-// ==============================|| SAMPLE PAGE ||============================== //
+const SamplePage = () => {
+    const [isLoading, setLoading] = useState(true);
+    const { first_name, recipient } = useContext(AuthStateContext);
+    console.log(first_name, recipient, 'hello');
+    useEffect(() => {
+        setLoading(false);
+    }, []);
 
-const SamplePage = () => (
-    <MainCard title="Welcome">
-        <Typography variant="body2">
-            Lorem ipsum dolor sit amen, consenter nipissing eli, sed do elusion tempos incident ut laborers et doolie magna alissa. Ut enif
-            ad minim venice, quin nostrum exercitation illampu laborings nisi ut liquid ex ea commons construal. Duos aube grue dolor in
-            reprehended in voltage veil esse colum doolie eu fujian bulla parian. Exceptive sin ocean cuspidate non president, sunk in culpa
-            qui officiate descent molls anim id est labours.
-        </Typography>
-    </MainCard>
-);
+    return (
+        <Grid container spacing={gridSpacing}>
+            <MainCard title="Welcome">
+                <span>
+                    Hi {first_name} your recipient is {recipient}
+                </span>
+                <Typography variant="body2">testaasdasdasdasdasdasdsadasdsaasdadasdasdasadasdasdas</Typography>
+            </MainCard>
+            <Grid item xs={12}>
+                <Grid item xs={12} md={4}>
+                    <LoginCard isLoading={isLoading} />
+                </Grid>
+            </Grid>
+        </Grid>
+    );
+};
 
 export default SamplePage;
