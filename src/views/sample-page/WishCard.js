@@ -78,7 +78,7 @@ const WishCard = ({ isLoading }) => {
             {isLoading ? (
                 <SkeletonPopularCard />
             ) : (
-                <MainCard title="Your Wishlist (optional}" content={false} sx={{ backgroundColor: '#f4abb4' }}>
+                <MainCard title="Your Wishlist (optional)" content={false} sx={{ backgroundColor: '#f4abb4' }}>
                     <CardContent>
                         <Formik
                             initialValues={{
@@ -106,11 +106,7 @@ const WishCard = ({ isLoading }) => {
                         >
                             {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
                                 <form noValidate onSubmit={handleSubmit}>
-                                    <FormControl
-                                        fullWidth
-                                        error={Boolean(touched.password && errors.password)}
-                                        sx={{ ...theme.typography.customInput }}
-                                    >
+                                    <FormControl fullWidth sx={{ ...theme.typography.customInput }}>
                                         <InputLabel htmlFor="outlined-adornment-email-login">Item #1</InputLabel>
                                         <OutlinedInput
                                             id="outlined-adornment-password-login"
