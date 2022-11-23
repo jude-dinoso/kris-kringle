@@ -97,7 +97,6 @@ export const signIn = (dispatch, input) => {
             })
             .then(function (response) {
                 const userData = { ...response };
-                console.log(userData.data.wish_list);
                 localStorage.setItem('first_name', JSON.stringify(userData));
                 return dispatch({
                     type: 'LOGIN_SUCCESS',
