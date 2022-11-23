@@ -19,6 +19,8 @@ import {
     IconButton,
     InputAdornment,
     InputLabel,
+    Typography,
+    TextField,
     Menu,
     MenuItem,
     OutlinedInput,
@@ -40,7 +42,7 @@ import _get from 'lodash.get';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-const LoginCard = ({ isLoading }) => {
+const WishCard = ({ isLoading }) => {
     const theme = useTheme();
     const scriptedRef = useScriptRef();
     const navigate = useNavigate();
@@ -75,17 +77,12 @@ const LoginCard = ({ isLoading }) => {
             {isLoading ? (
                 <SkeletonPopularCard />
             ) : (
-                <MainCard content={false}>
+                <MainCard title="Your Wishlist (optional}" content={false} sx={{ backgroundColor: '#f4abb4' }}>
                     <CardContent>
                         <Formik
                             initialValues={{
-                                first_name: 'Select User',
-                                password: 123,
                                 submit: null
                             }}
-                            validationSchema={Yup.object().shape({
-                                password: Yup.string().max(255).required('Password is required')
-                            })}
                             onSubmit={async (values, { resetForm, setErrors, setStatus, setSubmitting }) => {
                                 try {
                                     const userData = { ...values };
@@ -105,27 +102,21 @@ const LoginCard = ({ isLoading }) => {
                         >
                             {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
                                 <form noValidate onSubmit={handleSubmit}>
-                                    <FormControl fullWidth sx={{ ...theme.typography.customInput }}>
-                                        <InputLabel htmlFor="outlined-adornment-email-login">SJ Family Member</InputLabel>
-                                        <Select
-                                            id="outlined-adornment-email-login"
-                                            type="first_name"
-                                            value={values.first_name}
-                                            name="first_name"
+                                    <FormControl
+                                        fullWidth
+                                        error={Boolean(touched.password && errors.password)}
+                                        sx={{ ...theme.typography.customInput }}
+                                    >
+                                        <InputLabel htmlFor="outlined-adornment-email-login">Item #1</InputLabel>
+                                        <OutlinedInput
+                                            id="outlined-adornment-password-login"
+                                            type="wishlist1"
+                                            value={values.wishlist1}
+                                            name="wishlist1"
                                             onBlur={handleBlur}
                                             onChange={handleChange}
-                                            label="SJ Family Member"
                                             inputProps={{}}
-                                            sx={{ paddingTop: 2 }}
-                                        >
-                                            <MenuItem value="Select User" disabled>
-                                                Select from list...
-                                            </MenuItem>
-                                            <MenuItem value="Lita">Lita</MenuItem>
-                                            <MenuItem value="Resty">Resty</MenuItem>
-                                            <MenuItem value="Nita">Nita</MenuItem>
-                                            <MenuItem value="Pam">Pam</MenuItem>
-                                        </Select>
+                                        />
                                     </FormControl>
 
                                     <FormControl
@@ -133,54 +124,47 @@ const LoginCard = ({ isLoading }) => {
                                         error={Boolean(touched.password && errors.password)}
                                         sx={{ ...theme.typography.customInput }}
                                     >
-                                        <InputLabel htmlFor="outlined-adornment-password-login">3-Digit Passcode</InputLabel>
+                                        <InputLabel htmlFor="outlined-adornment-email-login">Item #2</InputLabel>
                                         <OutlinedInput
                                             id="outlined-adornment-password-login"
-                                            type={showPassword ? 'text' : 'password'}
-                                            value={values.password}
-                                            name="password"
+                                            type="wishlist2"
+                                            value={values.wishlist2}
+                                            name="wishlist2"
                                             onBlur={handleBlur}
                                             onChange={handleChange}
-                                            endAdornment={
-                                                <InputAdornment position="end">
-                                                    <IconButton
-                                                        aria-label="toggle password visibility"
-                                                        onClick={handleClickShowPassword}
-                                                        onMouseDown={handleMouseDownPassword}
-                                                        edge="end"
-                                                        size="large"
-                                                    >
-                                                        {showPassword ? <Visibility /> : <VisibilityOff />}
-                                                    </IconButton>
-                                                </InputAdornment>
-                                            }
-                                            label="Password"
                                             inputProps={{}}
                                         />
-                                        {touched.password && errors.password && (
-                                            <FormHelperText error id="standard-weight-helper-text-password-login">
-                                                {errors.password}
-                                            </FormHelperText>
-                                        )}
                                     </FormControl>
-                                    {errors.submit && (
-                                        <Box sx={{ mt: 3 }}>
-                                            <FormHelperText error>{errors.submit}</FormHelperText>
-                                        </Box>
-                                    )}
 
-                                    <Box sx={{ mt: 2 }}>
+                                    <FormControl
+                                        fullWidth
+                                        error={Boolean(touched.password && errors.password)}
+                                        sx={{ ...theme.typography.customInput }}
+                                    >
+                                        <InputLabel htmlFor="outlined-adornment-email-login">Item #3</InputLabel>
+                                        <OutlinedInput
+                                            id="outlined-adornment-password-login"
+                                            type="wishlist3"
+                                            value={values.wishlist3}
+                                            name="wishlist3"
+                                            onBlur={handleBlur}
+                                            onChange={handleChange}
+                                            inputProps={{}}
+                                        />
+                                    </FormControl>
+
+                                    <Box>
                                         <AnimateButton>
                                             <Button
                                                 disableElevation
                                                 disabled={isSubmitting}
                                                 fullWidth
-                                                size="large"
+                                                size="small"
                                                 type="submit"
                                                 variant="contained"
-                                                color="secondary"
+                                                color="primary"
                                             >
-                                                Check Kris Kringle Info
+                                                Update Wishlist
                                             </Button>
                                         </AnimateButton>
                                     </Box>
@@ -194,8 +178,8 @@ const LoginCard = ({ isLoading }) => {
     );
 };
 
-LoginCard.propTypes = {
+WishCard.propTypes = {
     isLoading: PropTypes.bool
 };
 
-export default LoginCard;
+export default WishCard;
