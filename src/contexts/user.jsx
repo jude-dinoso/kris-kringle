@@ -11,6 +11,9 @@ const initialState = {
     wishlist1: '',
     wishlist2: '',
     wishlist3: '',
+    r_wishlist1: '',
+    r_wishlist2: '',
+    r_wishlist3: '',
     desc: '',
     isLoggingIn: false
 };
@@ -30,6 +33,9 @@ const reducer = (state, action) => {
                 wishlist1: null,
                 wishlist2: null,
                 wishlist3: null,
+                r_wishlist1: null,
+                r_wishlist2: null,
+                r_wishlist3: null,
                 desc: null,
                 isLoggingIn: true
             };
@@ -40,9 +46,12 @@ const reducer = (state, action) => {
                 first_name: action.payload.first_name,
                 recipient: action.payload.recipient,
                 secret_santa: action.payload.secret_santa,
-                wishlist1: action.payload.wish_list,
+                wishlist1: action.payload.wish_list_1,
                 wishlist2: action.payload.wish_list_2,
                 wishlist3: action.payload.wish_list_3,
+                r_wishlist1: action.payload.r_wish_list_1,
+                r_wishlist2: action.payload.r_wish_list_2,
+                r_wishlist3: action.payload.r_wish_list_3,
                 desc: action.payload.desc,
                 isLoggingIn: false
             };
@@ -53,20 +62,19 @@ const reducer = (state, action) => {
                 first_name: action.payload.first_name,
                 recipient: action.payload.recipient,
                 secret_santa: action.payload.secret_santa,
-                wishlist1: action.payload.wish_list,
+                wishlist1: action.payload.wish_list_1,
                 wishlist2: action.payload.wish_list_2,
                 wishlist3: action.payload.wish_list_3,
+                r_wishlist1: action.payload.r_wish_list_1,
+                r_wishlist2: action.payload.r_wish_list_2,
+                r_wishlist3: action.payload.r_wish_list_3,
                 desc: action.payload.desc,
                 isLoggingIn: false
             };
         case 'LOGIN_FAILURE':
             return {
                 ...state,
-                isLoggedIn: false,
-                first_name: null,
-                recipient: null,
-                secret_santa: null,
-                isLoggingIn: false
+                ...initialState
             };
         case 'LOGOUT_SUCCESS':
             return {
@@ -89,7 +97,7 @@ export const signIn = (dispatch, input) => {
             })
             .then(function (response) {
                 const userData = { ...response };
-                console.log(userData);
+                console.log(userData.data.wish_list);
                 localStorage.setItem('first_name', JSON.stringify(userData));
                 return dispatch({
                     type: 'LOGIN_SUCCESS',
@@ -97,9 +105,12 @@ export const signIn = (dispatch, input) => {
                         first_name: input.first_name,
                         recipient: userData.data.recipient,
                         secret_santa: userData.data.secret_santa,
-                        wishlist1: userData.data.wish_list,
-                        wishlist2: userData.data.wish_list_2,
-                        wishlist3: userData.data.wish_list_3,
+                        wish_list_1: userData.data.wish_list,
+                        wish_list_2: userData.data.wish_list_2,
+                        wish_list_3: userData.data.wish_list_3,
+                        r_wish_list_1: userData.data.r_wl,
+                        r_wish_list_2: userData.data.r_wl2,
+                        r_wish_list_3: userData.data.r_wl3,
                         desc: userData.data.description
                     }
                 });
@@ -112,13 +123,13 @@ export const signIn = (dispatch, input) => {
     }
 };
 
-export const updateWishlist = (dispatch, input) => {
+export const updateWishList = (dispatch, input, first_name) => {
     try {
         axios
             .post('https://kris-kringle-backend.herokuapp.com/wishlist', null, {
                 params: {
-                    first_name: input.first_name,
-                    wish_list_1: input.wishlist1,
+                    first_name: first_name,
+                    wish_list: input.wishlist1,
                     wish_list_2: input.wishlist2,
                     wish_list_3: input.wishlist3
                 }
@@ -129,13 +140,16 @@ export const updateWishlist = (dispatch, input) => {
                 return dispatch({
                     type: 'UPDATE_SUCCESS',
                     payload: {
-                        first_name: input.first_name,
+                        first_name: first_name,
                         recipient: userData.data.recipient,
                         secret_santa: userData.data.secret_santa,
-                        wishlist1: userData.data.wish_list,
-                        wishlist2: userData.data.wish_list_2,
-                        wishlist3: userData.data.wish_list_3,
-                        desc: userData.data.desc
+                        wish_list_1: userData.data.wish_list,
+                        wish_list_2: userData.data.wish_list_2,
+                        wish_list_3: userData.data.wish_list_3,
+                        r_wish_list_1: userData.data.r_wl,
+                        r_wish_list_2: userData.data.r_wl2,
+                        r_wish_list_3: userData.data.r_wl3,
+                        desc: userData.data.description
                     }
                 });
             });
@@ -163,9 +177,12 @@ export const updateDescription = (dispatch, input, first_name) => {
                         first_name: first_name,
                         recipient: userData.data.recipient,
                         secret_santa: userData.data.secret_santa,
-                        wishlist1: userData.data.wish_list,
-                        wishlist2: userData.data.wish_list_2,
-                        wishlist3: userData.data.wish_list_3,
+                        wish_list_1: userData.data.wish_list,
+                        wish_list_2: userData.data.wish_list_2,
+                        wish_list_3: userData.data.wish_list_3,
+                        r_wish_list_1: userData.data.r_wl,
+                        r_wish_list_2: userData.data.r_wl2,
+                        r_wish_list_3: userData.data.r_wl3,
                         desc: userData.data.description
                     }
                 });
