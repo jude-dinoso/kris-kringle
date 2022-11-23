@@ -79,6 +79,7 @@ const DescCard = ({ isLoading }) => {
                 <MainCard content={false} sx={{ backgroundColor: '#D0F0C0' }}>
                     <CardContent>
                         <Typography variant="h4">How would you describe your monito/monita?</Typography>
+                        <Typography variant="h4">Current Description: {desc}</Typography>
                         <Formik
                             enableReinitialize
                             initialValues={{
