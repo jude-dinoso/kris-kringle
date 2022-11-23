@@ -63,10 +63,15 @@ const LoginCard = ({ isLoading }) => {
 
     const signInSuccess = (userData) => {
         signIn(authDispatch, userData);
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
         navigate('/kris-kringle');
     };
 
     const signInFail = () => {
+        navigate('/dashboard/default');
         signInFailure(authDispatch);
     };
 
@@ -79,7 +84,7 @@ const LoginCard = ({ isLoading }) => {
                     <CardContent>
                         <Formik
                             initialValues={{
-                                first_name: 'Select User',
+                                first_name: 'User',
                                 password: 123,
                                 submit: null
                             }}
@@ -118,7 +123,7 @@ const LoginCard = ({ isLoading }) => {
                                             inputProps={{}}
                                             sx={{ paddingTop: 2 }}
                                         >
-                                            <MenuItem value="Select User" disabled>
+                                            <MenuItem value="User" disabled>
                                                 Select from list...
                                             </MenuItem>
                                             <MenuItem value="Lita">Lita</MenuItem>
