@@ -2,6 +2,7 @@ import React, { useReducer, createContext, useEffect } from 'react';
 import _get from 'lodash.get';
 import UseLocalStorage from 'hooks/UseLocalStorage';
 import axios from 'axios';
+import { Navigate } from 'react-router';
 
 const initialState = {
     isLoggedIn: false,
@@ -86,19 +87,19 @@ const reducer = (state, action) => {
     }
 };
 
-export const signIn = (dispatch, input) => {
+export async function signIn(dispatch, input) {
     try {
-        axios
+        const flag = await axios
             .post('https://kris-kringle-backend.herokuapp.com/login', null, {
                 params: {
                     first_name: input.first_name,
                     password: input.password
                 }
             })
-            .then(function (response) {
+            .then(async function (response) {
                 const userData = { ...response };
                 localStorage.setItem('first_name', JSON.stringify(userData));
-                return dispatch({
+                await dispatch({
                     type: 'LOGIN_SUCCESS',
                     payload: {
                         first_name: input.first_name,
@@ -113,14 +114,23 @@ export const signIn = (dispatch, input) => {
                         desc: userData.data.description
                     }
                 });
+                return true;
             })
-            .catch((err) => {
-                alert(err.response.data.detail);
+            .catch(async function (err) {
+                console.log('hi', err);
+                alert('Invalid Passcode');
+                await dispatch({
+                    type: 'LOGIN_FAILURE'
+                });
+                console.log('done');
+                return false;
             });
+        return flag;
     } catch (err) {
-        console.error(err);
+        console.error('yo', err);
+        return false;
     }
-};
+}
 
 export const updateWishList = (dispatch, input, first_name) => {
     try {
