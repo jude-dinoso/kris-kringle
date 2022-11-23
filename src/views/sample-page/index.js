@@ -12,7 +12,7 @@ import { AuthStateContext, AuthDispatchContext } from 'contexts/user';
 
 const SamplePage = () => {
     const [isLoading, setLoading] = useState(true);
-    const { first_name, recipient } = useContext(AuthStateContext);
+    const { first_name, recipient, r_wishlist1, r_wishlist2, r_wishlist3 } = useContext(AuthStateContext);
     useEffect(() => {
         setLoading(false);
     }, []);
@@ -43,9 +43,9 @@ const SamplePage = () => {
                         <Grid container spacing={gridSpacing}>
                             <Grid item sm={6} xs={12} md={6} lg={6}>
                                 <MainCard title="Your Monito/Monita's Wishlist (if any)" sx={{ backgroundColor: '#aedef0' }}>
-                                    <MainCard sx={{ mt: 1.5, backgroundColor: '#4682b4', color: 'white' }}>Item #1</MainCard>
-                                    <MainCard sx={{ mt: 2.9, backgroundColor: '#4682b4', color: 'white' }}>Item #2</MainCard>
-                                    <MainCard sx={{ mt: 2.9, backgroundColor: '#4682b4', color: 'white' }}>Item #3</MainCard>
+                                    <MainCard sx={{ mt: 1.5, backgroundColor: '#4682b4', color: 'white' }}>Item #1: {r_wishlist1}</MainCard>
+                                    <MainCard sx={{ mt: 2.9, backgroundColor: '#4682b4', color: 'white' }}>Item #2: {r_wishlist2}</MainCard>
+                                    <MainCard sx={{ mt: 2.9, backgroundColor: '#4682b4', color: 'white' }}>Item #3: {r_wishlist3}</MainCard>
                                 </MainCard>
                             </Grid>
                             <Grid item sm={6} xs={12} md={6} lg={6}>
