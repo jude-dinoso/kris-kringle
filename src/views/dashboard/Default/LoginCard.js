@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState, useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { AuthDispatchContext, signIn, signInFailure } from 'contexts/user';
+import { AuthStateContext, AuthDispatchContext, signIn, signInFailure } from 'contexts/user';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -50,6 +50,7 @@ const LoginCard = ({ isLoading }) => {
     const [anchorEl, setAnchorEl] = useState(null);
     const authDispatch = useContext(AuthDispatchContext);
     const [showPassword, setShowPassword] = useState(false);
+    const { isLoggedIn, first_name } = useContext(AuthStateContext);
     const handleClickShowPassword = () => {
         setShowPassword(!showPassword);
     };
@@ -61,14 +62,20 @@ const LoginCard = ({ isLoading }) => {
         setAnchorEl(null);
     };
 
-    const signInSuccess = (userData) => {
-        signIn(authDispatch, userData);
+    async function SignInSuccess(userData) {
+        // await signIn(authDispatch, userData);
+        const flag = await signIn(authDispatch, userData);
+        console.log(flag, isLoggedIn, first_name);
+        if (!flag) {
+            navigate('/dashboard/default');
+        } else {
+            navigate('/kris-kringle');
+        }
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
-        navigate('/kris-kringle');
-    };
+    }
 
     const signInFail = () => {
         navigate('/dashboard/default');
@@ -95,8 +102,7 @@ const LoginCard = ({ isLoading }) => {
                                 try {
                                     const userData = { ...values };
                                     setSubmitting(true);
-                                    resetForm();
-                                    signInSuccess(userData);
+                                    await SignInSuccess(userData);
                                 } catch (err) {
                                     console.error(err);
                                     if (scriptedRef.current) {

@@ -86,9 +86,9 @@ const WishCard = ({ isLoading }) => {
                     <CardContent>
                         <Formik
                             initialValues={{
-                                wishlist1: wishlist1,
-                                wishlist2: wishlist2,
-                                wishlist3: wishlist3,
+                                wishlist1: '',
+                                wishlist2: '',
+                                wishlist3: '',
                                 submit: null
                             }}
                             onSubmit={async (values, { resetForm, setErrors, setStatus, setSubmitting }) => {
