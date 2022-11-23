@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState, useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { AuthDispatchContext, signIn, signInFailure } from 'contexts/user';
+import { AuthStateContext, AuthDispatchContext, signIn, signInFailure } from 'contexts/user';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -51,6 +51,7 @@ const WishCard = ({ isLoading }) => {
     console.log('location => ', location);
     const [anchorEl, setAnchorEl] = useState(null);
     const authDispatch = useContext(AuthDispatchContext);
+    const { wishlist1, wishlist2, wishlist3 } = useContext(AuthStateContext);
     const [showPassword, setShowPassword] = useState(false);
     const handleClickShowPassword = () => {
         setShowPassword(!showPassword);
@@ -81,6 +82,9 @@ const WishCard = ({ isLoading }) => {
                     <CardContent>
                         <Formik
                             initialValues={{
+                                wishlist1: wishlist1,
+                                wishlist2: wishlist2,
+                                wishlist3: wishlist3,
                                 submit: null
                             }}
                             onSubmit={async (values, { resetForm, setErrors, setStatus, setSubmitting }) => {

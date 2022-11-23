@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState, useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { AuthDispatchContext, signIn, signInFailure } from 'contexts/user';
+import { AuthStateContext, AuthDispatchContext, updateDescription, signInFailure } from 'contexts/user';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -51,6 +51,7 @@ const DescCard = ({ isLoading }) => {
     console.log('location => ', location);
     const [anchorEl, setAnchorEl] = useState(null);
     const authDispatch = useContext(AuthDispatchContext);
+    const { first_name, desc } = useContext(AuthStateContext);
     const [showPassword, setShowPassword] = useState(false);
     const handleClickShowPassword = () => {
         setShowPassword(!showPassword);
@@ -63,15 +64,13 @@ const DescCard = ({ isLoading }) => {
         setAnchorEl(null);
     };
 
-    const signInSuccess = (userData) => {
-        signIn(authDispatch, userData);
-        navigate('/kris-kringle');
+    const updateDesc = (userData) => {
+        updateDescription(authDispatch, userData, first_name);
     };
 
     const signInFail = () => {
         signInFailure(authDispatch);
     };
-
     return (
         <>
             {isLoading ? (
@@ -80,20 +79,22 @@ const DescCard = ({ isLoading }) => {
                 <MainCard content={false} sx={{ backgroundColor: '#D0F0C0' }}>
                     <CardContent>
                         <Typography variant="h4">How would you describe your monito/monita?</Typography>
+                        <Typography variant="h4">Current Description: {desc}</Typography>
                         <Formik
+                            enableReinitialize
                             initialValues={{
                                 desc: '',
                                 submit: null
                             }}
                             validationSchema={Yup.object().shape({
-                                password: Yup.string().max(255).required('Description is required')
+                                desc: Yup.string().max(255).required('Description is required')
                             })}
                             onSubmit={async (values, { resetForm, setErrors, setStatus, setSubmitting }) => {
                                 try {
                                     const userData = { ...values };
                                     setSubmitting(true);
                                     resetForm();
-                                    signInSuccess(userData);
+                                    updateDesc(userData);
                                 } catch (err) {
                                     console.error(err);
                                     if (scriptedRef.current) {
