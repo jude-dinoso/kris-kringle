@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useState, useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { AuthStateContext, AuthDispatchContext, signIn, signInFailure } from 'contexts/user';
+import { AuthStateContext, AuthDispatchContext, signIn, signInFailure, updateWishList } from 'contexts/user';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -51,7 +51,7 @@ const WishCard = ({ isLoading }) => {
     console.log('location => ', location);
     const [anchorEl, setAnchorEl] = useState(null);
     const authDispatch = useContext(AuthDispatchContext);
-    const { wishlist1, wishlist2, wishlist3 } = useContext(AuthStateContext);
+    const { first_name, desc, wishlist1, wishlist2, wishlist3 } = useContext(AuthStateContext);
     const [showPassword, setShowPassword] = useState(false);
     const handleClickShowPassword = () => {
         setShowPassword(!showPassword);
@@ -73,6 +73,10 @@ const WishCard = ({ isLoading }) => {
         signInFailure(authDispatch);
     };
 
+    const updateWL = (userData) => {
+        updateWishList(authDispatch, userData, first_name);
+    };
+
     return (
         <>
             {isLoading ? (
@@ -92,7 +96,7 @@ const WishCard = ({ isLoading }) => {
                                     const userData = { ...values };
                                     setSubmitting(true);
                                     resetForm();
-                                    signInSuccess(userData);
+                                    updateWL(userData, first_name);
                                 } catch (err) {
                                     console.error(err);
                                     if (scriptedRef.current) {
@@ -107,7 +111,7 @@ const WishCard = ({ isLoading }) => {
                             {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
                                 <form noValidate onSubmit={handleSubmit}>
                                     <FormControl fullWidth sx={{ ...theme.typography.customInput }}>
-                                        <InputLabel htmlFor="outlined-adornment-email-login">Item #1</InputLabel>
+                                        <InputLabel htmlFor="outlined-adornment-email-login">Item #1: {wishlist1}</InputLabel>
                                         <OutlinedInput
                                             id="outlined-adornment-password-login"
                                             type="wishlist1"
@@ -124,7 +128,7 @@ const WishCard = ({ isLoading }) => {
                                         error={Boolean(touched.password && errors.password)}
                                         sx={{ ...theme.typography.customInput }}
                                     >
-                                        <InputLabel htmlFor="outlined-adornment-email-login">Item #2</InputLabel>
+                                        <InputLabel htmlFor="outlined-adornment-email-login">Item #2: {wishlist2}</InputLabel>
                                         <OutlinedInput
                                             id="outlined-adornment-password-login"
                                             type="wishlist2"
@@ -141,7 +145,7 @@ const WishCard = ({ isLoading }) => {
                                         error={Boolean(touched.password && errors.password)}
                                         sx={{ ...theme.typography.customInput }}
                                     >
-                                        <InputLabel htmlFor="outlined-adornment-email-login">Item #3</InputLabel>
+                                        <InputLabel htmlFor="outlined-adornment-email-login">Item #3: {wishlist3}</InputLabel>
                                         <OutlinedInput
                                             id="outlined-adornment-password-login"
                                             type="wishlist3"
