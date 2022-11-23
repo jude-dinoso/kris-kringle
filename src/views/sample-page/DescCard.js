@@ -19,6 +19,8 @@ import {
     IconButton,
     InputAdornment,
     InputLabel,
+    Typography,
+    TextField,
     Menu,
     MenuItem,
     OutlinedInput,
@@ -40,7 +42,7 @@ import _get from 'lodash.get';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-const LoginCard = ({ isLoading }) => {
+const DescCard = ({ isLoading }) => {
     const theme = useTheme();
     const scriptedRef = useScriptRef();
     const navigate = useNavigate();
@@ -75,16 +77,16 @@ const LoginCard = ({ isLoading }) => {
             {isLoading ? (
                 <SkeletonPopularCard />
             ) : (
-                <MainCard content={false}>
+                <MainCard content={false} sx={{ backgroundColor: '#D0F0C0' }}>
                     <CardContent>
+                        <Typography variant="h4">How would you describe your monito/monita?</Typography>
                         <Formik
                             initialValues={{
-                                first_name: 'Select User',
-                                password: 123,
+                                desc: '',
                                 submit: null
                             }}
                             validationSchema={Yup.object().shape({
-                                password: Yup.string().max(255).required('Password is required')
+                                password: Yup.string().max(255).required('Description is required')
                             })}
                             onSubmit={async (values, { resetForm, setErrors, setStatus, setSubmitting }) => {
                                 try {
@@ -105,82 +107,34 @@ const LoginCard = ({ isLoading }) => {
                         >
                             {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
                                 <form noValidate onSubmit={handleSubmit}>
-                                    <FormControl fullWidth sx={{ ...theme.typography.customInput }}>
-                                        <InputLabel htmlFor="outlined-adornment-email-login">SJ Family Member</InputLabel>
-                                        <Select
-                                            id="outlined-adornment-email-login"
-                                            type="first_name"
-                                            value={values.first_name}
-                                            name="first_name"
-                                            onBlur={handleBlur}
-                                            onChange={handleChange}
-                                            label="SJ Family Member"
-                                            inputProps={{}}
-                                            sx={{ paddingTop: 2 }}
-                                        >
-                                            <MenuItem value="Select User" disabled>
-                                                Select from list...
-                                            </MenuItem>
-                                            <MenuItem value="Lita">Lita</MenuItem>
-                                            <MenuItem value="Resty">Resty</MenuItem>
-                                            <MenuItem value="Nita">Nita</MenuItem>
-                                            <MenuItem value="Pam">Pam</MenuItem>
-                                        </Select>
-                                    </FormControl>
-
                                     <FormControl
                                         fullWidth
                                         error={Boolean(touched.password && errors.password)}
                                         sx={{ ...theme.typography.customInput }}
                                     >
-                                        <InputLabel htmlFor="outlined-adornment-password-login">3-Digit Passcode</InputLabel>
-                                        <OutlinedInput
+                                        <TextField
                                             id="outlined-adornment-password-login"
-                                            type={showPassword ? 'text' : 'password'}
-                                            value={values.password}
-                                            name="password"
+                                            type="desc"
+                                            value={values.desc}
+                                            name="desc"
                                             onBlur={handleBlur}
                                             onChange={handleChange}
-                                            endAdornment={
-                                                <InputAdornment position="end">
-                                                    <IconButton
-                                                        aria-label="toggle password visibility"
-                                                        onClick={handleClickShowPassword}
-                                                        onMouseDown={handleMouseDownPassword}
-                                                        edge="end"
-                                                        size="large"
-                                                    >
-                                                        {showPassword ? <Visibility /> : <VisibilityOff />}
-                                                    </IconButton>
-                                                </InputAdornment>
-                                            }
-                                            label="Password"
                                             inputProps={{}}
                                         />
-                                        {touched.password && errors.password && (
-                                            <FormHelperText error id="standard-weight-helper-text-password-login">
-                                                {errors.password}
-                                            </FormHelperText>
-                                        )}
                                     </FormControl>
-                                    {errors.submit && (
-                                        <Box sx={{ mt: 3 }}>
-                                            <FormHelperText error>{errors.submit}</FormHelperText>
-                                        </Box>
-                                    )}
 
-                                    <Box sx={{ mt: 2 }}>
+                                    <Box>
                                         <AnimateButton>
                                             <Button
                                                 disableElevation
                                                 disabled={isSubmitting}
                                                 fullWidth
-                                                size="large"
+                                                size="small"
                                                 type="submit"
                                                 variant="contained"
-                                                color="secondary"
+                                                color="error"
                                             >
-                                                Check Kris Kringle Info
+                                                Submit Description
                                             </Button>
                                         </AnimateButton>
                                     </Box>
@@ -194,8 +148,8 @@ const LoginCard = ({ isLoading }) => {
     );
 };
 
-LoginCard.propTypes = {
+DescCard.propTypes = {
     isLoading: PropTypes.bool
 };
 
-export default LoginCard;
+export default DescCard;
