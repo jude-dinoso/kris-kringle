@@ -117,12 +117,10 @@ export async function signIn(dispatch, input) {
                 return true;
             })
             .catch(async function (err) {
-                console.log('hi', err);
                 alert('Invalid Passcode');
                 await dispatch({
                     type: 'LOGIN_FAILURE'
                 });
-                console.log('done');
                 return false;
             });
         return flag;
@@ -178,7 +176,6 @@ export const updateDescription = (dispatch, input, first_name) => {
             })
             .then(function (response) {
                 const userData = { ...response };
-                console.log('Hi', response);
                 localStorage.setItem('first_name', JSON.stringify(userData));
                 return dispatch({
                     type: 'UPDATE_SUCCESS',
@@ -197,7 +194,6 @@ export const updateDescription = (dispatch, input, first_name) => {
                 });
             })
             .catch((err) => {
-                console.log('hello', err);
                 alert(err.data.detail);
             });
     } catch (err) {
@@ -215,7 +211,7 @@ export const signOut = (dispatch) => {
 export const signInFailure = (dispatch) => {
     localStorage.clear();
     return dispatch({
-        type: 'LOGOUT_FAILURE'
+        type: 'LOGOUT_SUCCESS'
     });
 };
 

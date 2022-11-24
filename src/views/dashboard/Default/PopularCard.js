@@ -117,7 +117,7 @@ const PopularCard = ({ isLoading }) => {
                                         <Typography variant="subtitle2" sx={{ color: theme.palette.orange.dark }}>
                                             Food Assignments:
                                         </Typography>
-                                        <Grid container xs={12}>
+                                        <Grid container spacing={gridSpacing}>
                                             <Grid item xs={4}>
                                                 <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
                                                     <u>ESJ</u>
@@ -166,7 +166,7 @@ const PopularCard = ({ isLoading }) => {
                                         </Grid>
                                     </Grid>
                                 </Grid>
-                                <Divider sx={{ mb: 1.5 }} />
+                                <Divider sx={{ mt: 1, mb: 1.5 }} />
                                 <Grid container direction="column">
                                     <Grid item>
                                         <Grid container alignItems="center" justifyContent="space-between">

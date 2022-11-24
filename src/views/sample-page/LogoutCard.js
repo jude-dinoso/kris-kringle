@@ -38,7 +38,7 @@ import * as Yup from 'yup';
 import { Formik } from 'formik';
 import _get from 'lodash.get';
 
-const DescCard = ({ isLoading }) => {
+const LogoutCard = ({ isLoading }) => {
     const theme = useTheme();
     const scriptedRef = useScriptRef();
     const navigate = useNavigate();
@@ -59,21 +59,17 @@ const DescCard = ({ isLoading }) => {
         setAnchorEl(null);
     };
 
-    const updateDesc = (userData) => {
-        updateDescription(authDispatch, userData, first_name);
-    };
-
     const signInFail = () => {
         signInFailure(authDispatch);
+        navigate('/');
     };
     return (
         <>
             {isLoading ? (
                 <SkeletonPopularCard />
             ) : (
-                <MainCard content={false} sx={{ backgroundColor: '#D0F0C0' }}>
+                <MainCard content={false} sx={{ backgroundColor: 'white' }}>
                     <CardContent>
-                        <Typography variant="h4">How would you describe your monito/monita?</Typography>
                         <Formik
                             enableReinitialize
                             initialValues={{
@@ -84,7 +80,7 @@ const DescCard = ({ isLoading }) => {
                                 try {
                                     const userData = { ...values };
                                     setSubmitting(true);
-                                    updateDesc(userData);
+                                    signInFail();
                                 } catch (err) {
                                     console.error(err);
                                     if (scriptedRef.current) {
@@ -98,36 +94,18 @@ const DescCard = ({ isLoading }) => {
                         >
                             {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
                                 <form noValidate onSubmit={handleSubmit}>
-                                    <FormControl
-                                        fullWidth
-                                        error={Boolean(touched.password && errors.password)}
-                                        sx={{ ...theme.typography.customInput }}
-                                    >
-                                        <InputLabel htmlFor="outlined-adornment-email-login">{desc}</InputLabel>
-                                        <OutlinedInput
-                                            id="outlined-adornment-password-login"
-                                            type="desc"
-                                            value={values.desc}
-                                            name="desc"
-                                            onBlur={handleBlur}
-                                            onChange={handleChange}
-                                            inputProps={{}}
-                                        />
-                                    </FormControl>
-
                                     <Box>
                                         <AnimateButton>
                                             <Button
                                                 disableElevation
                                                 disabled={isSubmitting}
                                                 fullWidth
-                                                size="small"
+                                                size="large"
                                                 type="submit"
                                                 variant="contained"
-                                                color="orange"
-                                                sx={{ color: 'white' }}
+                                                color="error"
                                             >
-                                                Submit Description
+                                                Logout
                                             </Button>
                                         </AnimateButton>
                                     </Box>
@@ -141,8 +119,8 @@ const DescCard = ({ isLoading }) => {
     );
 };
 
-DescCard.propTypes = {
+LogoutCard.propTypes = {
     isLoading: PropTypes.bool
 };
 
-export default DescCard;
+export default LogoutCard;

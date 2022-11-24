@@ -48,7 +48,6 @@ const WishCard = ({ isLoading }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const fromUrl = _get(location, 'state.from.pathname');
-    console.log('location => ', location);
     const [anchorEl, setAnchorEl] = useState(null);
     const authDispatch = useContext(AuthDispatchContext);
     const { first_name, desc, wishlist1, wishlist2, wishlist3 } = useContext(AuthStateContext);
@@ -95,7 +94,6 @@ const WishCard = ({ isLoading }) => {
                                 try {
                                     const userData = { ...values };
                                     setSubmitting(true);
-                                    resetForm();
                                     updateWL(userData, first_name);
                                 } catch (err) {
                                     console.error(err);
