@@ -90,6 +90,44 @@ const PopularCard = ({ isLoading }) => {
                                     <Grid item>
                                         <Grid container alignItems="center" justifyContent="space-between">
                                             <Grid item>
+                                                <Grid container alignItems="center" justifyContent="space-between">
+                                                    <Grid item>
+                                                        <Typography variant="subtitle1" color="inherit">
+                                                            Message
+                                                        </Typography>
+                                                    </Grid>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography variant="subtitle2" sx={{ color: 'green' }}>
+                                            by Lola Clarita
+                                        </Typography>
+                                    </Grid>
+                                </Grid>
+                                <Divider sx={{ my: 1.5 }} />
+                                <Grid container direction="column">
+                                    <Grid item>
+                                        <Grid container alignItems="center" justifyContent="space-between">
+                                            <Grid item>
+                                                <Typography variant="subtitle1" color="inherit">
+                                                    Message
+                                                </Typography>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography variant="subtitle2" sx={{ color: theme.palette.orange.dark }}>
+                                            by Lola Nita
+                                        </Typography>
+                                    </Grid>
+                                </Grid>
+                                <Divider sx={{ my: 1.5 }} />
+                                <Grid container direction="column">
+                                    <Grid item>
+                                        <Grid container alignItems="center" justifyContent="space-between">
+                                            <Grid item>
                                                 <Typography variant="subtitle1" color="inherit">
                                                     Picture Taking
                                                 </Typography>
@@ -132,7 +170,7 @@ const PopularCard = ({ isLoading }) => {
                                                     Pork (Lechon Kawali, Sisig)
                                                 </Typography>
                                                 <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
-                                                    Veggies
+                                                    Veggies & Rice
                                                 </Typography>
                                                 <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
                                                     Dessert (Sorbetes)
@@ -147,9 +185,6 @@ const PopularCard = ({ isLoading }) => {
                                                 </Typography>
                                                 <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
                                                     Fish
-                                                </Typography>
-                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
-                                                    Rice
                                                 </Typography>
                                             </Grid>
                                             <Grid item xs={4}>
