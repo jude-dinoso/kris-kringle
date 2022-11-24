@@ -6,20 +6,13 @@ import { useTheme } from '@mui/material/styles';
 import { Avatar, Button, CardActions, CardContent, Divider, Grid, Menu, MenuItem, Typography } from '@mui/material';
 
 // project imports
-import BajajAreaChartCard from './BajajAreaChartCard';
 import MainCard from 'ui-component/cards/MainCard';
 import SkeletonPopularCard from 'ui-component/cards/Skeleton/PopularCard';
 import { gridSpacing } from 'store/constant';
 
-// assets
-import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
-import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
-import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
-import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
-
 // ==============================|| DASHBOARD DEFAULT - POPULAR CARD ||============================== //
 
-const TeamsCard = ({ isLoading }) => {
+const ContributionCard = ({ isLoading }) => {
     const theme = useTheme();
 
     const [anchorEl, setAnchorEl] = useState(null);
@@ -43,19 +36,20 @@ const TeamsCard = ({ isLoading }) => {
                             <Grid item xs={12}>
                                 <Grid container alignContent="center" justifyContent="space-between">
                                     <Grid item>
-                                        <Typography variant="h4">Teams</Typography>
+                                        <Typography variant="h4">Contributions & Penalties</Typography>
+                                        <Typography variant="body2">to be used for team and bingo prizes</Typography>
                                     </Grid>
                                 </Grid>
                             </Grid>
-                            <Grid item xs={12}>
+                            <Grid item xs={6}>
                                 <Grid container direction="column">
                                     <Grid item>
                                         <Grid container alignItems="center" justifyContent="space-between">
                                             <Grid item>
                                                 <Grid container alignItems="center" justifyContent="space-between">
                                                     <Grid item>
-                                                        <Typography variant="h3" color="pink">
-                                                            Pink
+                                                        <Typography variant="subtitle1" color="inherit">
+                                                            Php700
                                                         </Typography>
                                                     </Grid>
                                                 </Grid>
@@ -63,9 +57,7 @@ const TeamsCard = ({ isLoading }) => {
                                         </Grid>
                                     </Grid>
                                     <Grid item>
-                                        <Typography variant="subtitle3" sx={{ color: 'pink' }}>
-                                            names
-                                        </Typography>
+                                        <Typography variant="subtitle2">1st Generation</Typography>
                                     </Grid>
                                 </Grid>
                                 <Divider sx={{ my: 1.5 }} />
@@ -73,37 +65,14 @@ const TeamsCard = ({ isLoading }) => {
                                     <Grid item>
                                         <Grid container alignItems="center" justifyContent="space-between">
                                             <Grid item>
-                                                <Grid container alignItems="center" justifyContent="space-between">
-                                                    <Grid item>
-                                                        <Typography variant="h3" color="green">
-                                                            Green
-                                                        </Typography>
-                                                    </Grid>
-                                                </Grid>
-                                            </Grid>
-                                        </Grid>
-                                    </Grid>
-                                    <Grid item>
-                                        <Typography variant="subtitle3" sx={{ color: 'green' }}>
-                                            names
-                                        </Typography>
-                                    </Grid>
-                                </Grid>
-                                <Divider sx={{ my: 1.5 }} />
-                                <Grid container direction="column">
-                                    <Grid item>
-                                        <Grid container alignItems="center" justifyContent="space-between">
-                                            <Grid item>
-                                                <Typography variant="h3" color="blue">
-                                                    Blue
+                                                <Typography variant="subtitle1" color="inherit">
+                                                    Php500
                                                 </Typography>
                                             </Grid>
                                         </Grid>
                                     </Grid>
                                     <Grid item>
-                                        <Typography variant="subtitle3" sx={{ color: 'blue' }}>
-                                            names
-                                        </Typography>
+                                        <Typography variant="subtitle2">2nd Generation</Typography>
                                     </Grid>
                                 </Grid>
                                 <Divider sx={{ my: 1.5 }} />
@@ -111,15 +80,55 @@ const TeamsCard = ({ isLoading }) => {
                                     <Grid item>
                                         <Grid container alignItems="center" justifyContent="space-between">
                                             <Grid item>
-                                                <Typography variant="h3" color="#9E9E9E">
-                                                    White
+                                                <Typography variant="subtitle1" color="inherit">
+                                                    Php400
                                                 </Typography>
                                             </Grid>
                                         </Grid>
                                     </Grid>
                                     <Grid item>
-                                        <Typography variant="subtitle3" sx={{ color: '#9E9E9E' }}>
-                                            names
+                                        <Typography variant="subtitle2">3rd Generation - Married</Typography>
+                                    </Grid>
+                                </Grid>
+                                <Divider sx={{ my: 1.5 }} />
+                                <Grid container direction="column">
+                                    <Grid item>
+                                        <Grid container alignItems="center" justifyContent="space-between">
+                                            <Grid item>
+                                                <Typography variant="subtitle1" color="inherit">
+                                                    Php300
+                                                </Typography>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography variant="subtitle2">3rd Generation - Single & Employed</Typography>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Grid container direction="column">
+                                    <Grid item>
+                                        <Grid container alignItems="center" justifyContent="space-between">
+                                            <Grid item>
+                                                <Typography variant="subtitle1" color="inherit">
+                                                    Php50
+                                                </Typography>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography variant="subtitle2">Penalty for:</Typography>
+                                        <Typography variant="subtitle2">- late submission of description (12/11)</Typography>
+                                        <Typography variant="subtitle2">- late submission of guess (12/21)</Typography>
+                                        <Typography variant="subtitle2">- incorrect secret santa guess</Typography>
+                                        <Typography variant="subtitle2">- correct guess by monito/monita</Typography>
+                                        <Typography variant="subtitle2">- wrong shirt color at event</Typography>
+                                    </Grid>
+                                    <Divider sx={{ my: 1.5 }} />
+                                    <Grid item>
+                                        <Typography variant="subtitle2" color="black">
+                                            Please submit contributions to Berna/Cely at SRMC by December 18.
                                         </Typography>
                                     </Grid>
                                 </Grid>
@@ -132,8 +141,8 @@ const TeamsCard = ({ isLoading }) => {
     );
 };
 
-TeamsCard.propTypes = {
+ContributionCard.propTypes = {
     isLoading: PropTypes.bool
 };
 
-export default TeamsCard;
+export default ContributionCard;

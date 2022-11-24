@@ -91,40 +91,6 @@ const PopularCard = ({ isLoading }) => {
                                         <Grid container alignItems="center" justifyContent="space-between">
                                             <Grid item>
                                                 <Typography variant="subtitle1" color="inherit">
-                                                    Welcome Message
-                                                </Typography>
-                                            </Grid>
-                                        </Grid>
-                                    </Grid>
-                                    <Grid item>
-                                        <Typography variant="subtitle2" sx={{ color: 'green' }}>
-                                            by Lola Nita
-                                        </Typography>
-                                    </Grid>
-                                </Grid>
-                                <Divider sx={{ my: 1.5 }} />
-                                <Grid container direction="column">
-                                    <Grid item>
-                                        <Grid container alignItems="center" justifyContent="space-between">
-                                            <Grid item>
-                                                <Typography variant="subtitle1" color="inherit">
-                                                    Welcome Message
-                                                </Typography>
-                                            </Grid>
-                                        </Grid>
-                                    </Grid>
-                                    <Grid item>
-                                        <Typography variant="subtitle2" sx={{ color: theme.palette.orange.dark }}>
-                                            by Lola Clarita
-                                        </Typography>
-                                    </Grid>
-                                </Grid>
-                                <Divider sx={{ my: 1.5 }} />
-                                <Grid container direction="column">
-                                    <Grid item>
-                                        <Grid container alignItems="center" justifyContent="space-between">
-                                            <Grid item>
-                                                <Typography variant="subtitle1" color="inherit">
                                                     Picture Taking
                                                 </Typography>
                                             </Grid>
@@ -132,7 +98,7 @@ const PopularCard = ({ isLoading }) => {
                                     </Grid>
                                     <Grid item>
                                         <Typography variant="subtitle2" sx={{ color: 'green' }}>
-                                            Pink > Blue > White > RSJ > ESJ > CSJ
+                                            RSJ > ESJ > CSJ > All
                                         </Typography>
                                     </Grid>
                                 </Grid>
@@ -142,14 +108,78 @@ const PopularCard = ({ isLoading }) => {
                                         <Grid container alignItems="center" justifyContent="space-between">
                                             <Grid item>
                                                 <Typography variant="subtitle1" color="inherit">
-                                                    Welcome Message
+                                                    Dinner
                                                 </Typography>
                                             </Grid>
                                         </Grid>
                                     </Grid>
                                     <Grid item>
                                         <Typography variant="subtitle2" sx={{ color: theme.palette.orange.dark }}>
-                                            by Lola Clarita
+                                            Food Assignments:
+                                        </Typography>
+                                        <Grid container xs={12}>
+                                            <Grid item xs={4}>
+                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
+                                                    <u>ESJ</u>
+                                                </Typography>
+                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
+                                                    Noodles (Pancit)
+                                                </Typography>
+                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
+                                                    Beef (Lengua)
+                                                </Typography>
+                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
+                                                    Pork (Lechon Kawali, Sisig)
+                                                </Typography>
+                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
+                                                    Veggies
+                                                </Typography>
+                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
+                                                    Dessert (Sorbetes)
+                                                </Typography>
+                                            </Grid>
+                                            <Grid item xs={4}>
+                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
+                                                    <u>RSJ</u>
+                                                </Typography>
+                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
+                                                    Soup (Molo)
+                                                </Typography>
+                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
+                                                    Fish
+                                                </Typography>
+                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
+                                                    Rice
+                                                </Typography>
+                                            </Grid>
+                                            <Grid item xs={4}>
+                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
+                                                    <u>CSJ</u>
+                                                </Typography>
+                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
+                                                    Chicken (Cordon Bleu)
+                                                </Typography>
+                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
+                                                    Softdrinks
+                                                </Typography>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                                <Divider sx={{ mb: 1.5 }} />
+                                <Grid container direction="column">
+                                    <Grid item>
+                                        <Grid container alignItems="center" justifyContent="space-between">
+                                            <Grid item>
+                                                <Typography variant="subtitle1" color="inherit">
+                                                    Games
+                                                </Typography>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography variant="subtitle2" sx={{ color: 'green' }}>
+                                            by Kaye
                                         </Typography>
                                     </Grid>
                                 </Grid>
@@ -159,14 +189,82 @@ const PopularCard = ({ isLoading }) => {
                                         <Grid container alignItems="center" justifyContent="space-between">
                                             <Grid item>
                                                 <Typography variant="subtitle1" color="inherit">
-                                                    Picture Taking
+                                                    Monito/Monita
+                                                </Typography>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography variant="subtitle2" sx={{ color: theme.palette.orange.dark }}>
+                                            by Doc Fidel
+                                        </Typography>
+                                    </Grid>
+                                </Grid>
+                                <Divider sx={{ my: 1.5 }} />
+                                <Grid container direction="column">
+                                    <Grid item>
+                                        <Grid container alignItems="center" justifyContent="space-between">
+                                            <Grid item>
+                                                <Typography variant="subtitle1" color="inherit">
+                                                    Awarding and Team Photo Op
                                                 </Typography>
                                             </Grid>
                                         </Grid>
                                     </Grid>
                                     <Grid item>
                                         <Typography variant="subtitle2" sx={{ color: 'green' }}>
-                                            Pink > Blue > White > RSJ > ESJ > BSJ
+                                            3rd Runner-Up > 2nd Runner-Up > 1st Runner-Up > Champion
+                                        </Typography>
+                                    </Grid>
+                                </Grid>
+                                <Divider sx={{ my: 1.5 }} />
+                                <Grid container direction="column">
+                                    <Grid item>
+                                        <Grid container alignItems="center" justifyContent="space-between">
+                                            <Grid item>
+                                                <Typography variant="subtitle1" color="inherit">
+                                                    Raffle
+                                                </Typography>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography variant="subtitle2" sx={{ color: theme.palette.orange.dark }}>
+                                            by Lolo Resty
+                                        </Typography>
+                                    </Grid>
+                                </Grid>
+                                <Divider sx={{ my: 1.5 }} />
+                                <Grid container direction="column">
+                                    <Grid item>
+                                        <Grid container alignItems="center" justifyContent="space-between">
+                                            <Grid item>
+                                                <Typography variant="subtitle1" color="inherit">
+                                                    Bingo
+                                                </Typography>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography variant="subtitle2" sx={{ color: 'green' }}>
+                                            by Doc Fidel
+                                        </Typography>
+                                    </Grid>
+                                </Grid>
+                                <Divider sx={{ my: 1.5 }} />
+                                <Grid container direction="column">
+                                    <Grid item>
+                                        <Grid container alignItems="center" justifyContent="space-between">
+                                            <Grid item>
+                                                <Typography variant="subtitle1" color="inherit">
+                                                    Closing Remarks
+                                                </Typography>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography variant="subtitle2" sx={{ color: theme.palette.orange.dark }}>
+                                            by Peen & Gie
                                         </Typography>
                                     </Grid>
                                 </Grid>
