@@ -5,6 +5,7 @@ import { Typography } from '@mui/material';
 import { Grid } from '@mui/material';
 import LoginCard from 'views/dashboard/Default/LoginCard';
 import DescCard from './DescCard';
+import LogoutCard from './LogoutCard';
 import WishCard from './WishCard';
 import { gridSpacing } from 'store/constant';
 // project imports
@@ -13,9 +14,13 @@ import { AuthStateContext, AuthDispatchContext } from 'contexts/user';
 
 const SamplePage = () => {
     const [isLoading, setLoading] = useState(true);
-    const { first_name, recipient, r_wishlist1, r_wishlist2, r_wishlist3 } = useContext(AuthStateContext);
+    const { first_name, recipient, isLoggedIn, r_wishlist1, r_wishlist2, r_wishlist3 } = useContext(AuthStateContext);
+    const navigate = useNavigate();
     useEffect(() => {
         setLoading(false);
+        if (!isLoggedIn) {
+            navigate('/dashboard/default');
+        }
     }, []);
 
     return (
@@ -55,7 +60,14 @@ const SamplePage = () => {
                         </Grid>
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
-                        <LoginCard isLoading={isLoading} />
+                        <Grid container spacing={gridSpacing}>
+                            <Grid item sm={6} xs={12} md={6} lg={6}>
+                                <LoginCard isLoading={isLoading} />
+                            </Grid>
+                            <Grid item sm={6} xs={12} md={6} lg={6}>
+                                <LogoutCard isLoading={isLoading} />
+                            </Grid>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>

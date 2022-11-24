@@ -46,7 +46,6 @@ const LoginCard = ({ isLoading }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const fromUrl = _get(location, 'state.from.pathname');
-    console.log('location => ', location);
     const [anchorEl, setAnchorEl] = useState(null);
     const authDispatch = useContext(AuthDispatchContext);
     const [showPassword, setShowPassword] = useState(false);
@@ -65,7 +64,6 @@ const LoginCard = ({ isLoading }) => {
     async function SignInSuccess(userData) {
         // await signIn(authDispatch, userData);
         const flag = await signIn(authDispatch, userData);
-        console.log(flag, isLoggedIn, first_name);
         if (!flag) {
             navigate('/dashboard/default');
         } else {
