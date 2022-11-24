@@ -132,9 +132,9 @@ const LoginCard = ({ isLoading }) => {
                                             </MenuItem>
                                             <ListSubheader sx={{ color: 'black' }}>RSJ</ListSubheader>
                                             <MenuItem value="Nita">Nita</MenuItem>
-                                            <MenuItem value="Danny">Danny</MenuItem>
-                                            <MenuItem value="Dan Marlou">Dan Marlou</MenuItem>
-                                            <MenuItem value="Daene">Daene</MenuItem>
+                                            <MenuItem value="Baby">Baby</MenuItem>
+                                            <MenuItem value="Rick">Rick</MenuItem>
+                                            <MenuItem value="Harold">Harold</MenuItem>
                                             <MenuItem value="Jenn">Jenn</MenuItem>
                                             <MenuItem value="Grant">Grant</MenuItem>
                                             <MenuItem value="Carl">Carl</MenuItem>
@@ -152,14 +152,15 @@ const LoginCard = ({ isLoading }) => {
                                             <MenuItem value="Sean">Sean</MenuItem>
                                             <MenuItem value="Martina">Martina</MenuItem>
                                             <MenuItem value="Rocco">Rocco</MenuItem>
-                                            <MenuItem value="Hansel">Hansel</MenuItem>
                                             <MenuItem value="Zeny">Zeny</MenuItem>
+                                            <MenuItem value="Hansel">Hansel</MenuItem>
                                             <MenuItem value="Hazel">Hazel</MenuItem>
                                             <MenuItem value="Mark Liriel">Mark Liriel</MenuItem>
                                             <MenuItem value="Noah">Noah</MenuItem>
                                             <MenuItem value="Zoe">Zoe</MenuItem>
                                             <MenuItem value="Sachi">Sachi</MenuItem>
                                             <MenuItem value="Frances">Frances</MenuItem>
+                                            <MenuItem value="Richard">Richard</MenuItem>
                                             <MenuItem value="Vincent">Vincent</MenuItem>
                                             <MenuItem value="Charlize Kate">Charlize Kate</MenuItem>
                                             <MenuItem value="Mark Haze">Mark Haze</MenuItem>
@@ -175,6 +176,9 @@ const LoginCard = ({ isLoading }) => {
                                             <MenuItem value="Denise">Denise</MenuItem>
                                             <MenuItem value="Anne">Anne</MenuItem>
                                             <MenuItem value="Caelum">Caelum</MenuItem>
+                                            <MenuItem value="Danny">Danny</MenuItem>
+                                            <MenuItem value="Dan Marlou">Dan Marlou</MenuItem>
+                                            <MenuItem value="Daene">Daene</MenuItem>
                                             <ListSubheader sx={{ color: 'black' }}>ESJ</ListSubheader>
                                             <MenuItem value="Resty">Resty</MenuItem>
                                             <MenuItem value="Lita">Lita</MenuItem>
