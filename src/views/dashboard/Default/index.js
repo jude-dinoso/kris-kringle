@@ -12,8 +12,8 @@ import LoginCard from './LoginCard';
 import TotalOrderLineChartCard from './TotalOrderLineChartCard';
 import TotalIncomeDarkCard from './TotalIncomeDarkCard';
 import TotalIncomeLightCard from './TotalIncomeLightCard';
+import ContributionCard from './ContributionCard';
 import { gridSpacing } from 'store/constant';
-import { AuthStateContext, AuthDispatchContext } from 'contexts/user';
 
 // ==============================|| DEFAULT DASHBOARD ||============================== //
 
@@ -47,13 +47,20 @@ const Dashboard = () => {
             </Grid>
             <Grid item xs={12}>
                 <Grid container spacing={gridSpacing}>
-                    <Grid item xs={12} md={8}>
-                        <TeamsCard isLoading={isLoading} />
-                    </Grid>
-                    <Grid item xs={12} md={4}>
+                    <Grid item xs={12} md={6}>
                         <LoginCard isLoading={isLoading} />
                     </Grid>
-                    <Grid item xs={12} md={8}>
+                    <Grid item xs={12} md={6}>
+                        <ContributionCard isLoading={isLoading} />
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid item xs={12}>
+                <Grid container spacing={gridSpacing}>
+                    <Grid item xs={12} md={6}>
+                        <TeamsCard isLoading={isLoading} />
+                    </Grid>
+                    <Grid item xs={12} md={6}>
                         <PopularCard isLoading={isLoading} />
                     </Grid>
                 </Grid>

@@ -38,10 +38,6 @@ import * as Yup from 'yup';
 import { Formik } from 'formik';
 import _get from 'lodash.get';
 
-// assets
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
-
 const DescCard = ({ isLoading }) => {
     const theme = useTheme();
     const scriptedRef = useScriptRef();
