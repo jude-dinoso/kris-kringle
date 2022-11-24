@@ -71,11 +71,11 @@ const DescCard = ({ isLoading }) => {
                                         <>
                                             <MainCard
                                                 sx={{
-                                                    mb: 2.6,
+                                                    mb: 2.2,
                                                     backgroundColor: 'transparent',
                                                     color: 'black',
-                                                    height: 86,
-                                                    mt: 1,
+                                                    height: 70,
+                                                    mt: 0.2,
                                                     borderColor: '#30b05a'
                                                 }}
                                             >
@@ -110,7 +110,7 @@ const DescCard = ({ isLoading }) => {
                                                     onChange={handleChange}
                                                     multiline
                                                     rows={2}
-                                                    sx={{ height: 86, mb: 1.5 }}
+                                                    sx={{ mb: 0.4, mt: -0.5 }}
                                                 />
                                             </FormControl>
 
