@@ -1,31 +1,10 @@
 import PropTypes from 'prop-types';
-import { useState, useContext } from 'react';
-import { useSelector } from 'react-redux';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { AuthStateContext, AuthDispatchContext, signIn, signInFailure, updateWishList } from 'contexts/user';
+import { useContext, useState } from 'react';
+import { AuthStateContext, AuthDispatchContext, signInFailure, updateWishList } from 'contexts/user';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import {
-    Avatar,
-    Box,
-    Button,
-    CardContent,
-    Divider,
-    FormControl,
-    FormControlLabel,
-    FormHelperText,
-    Grid,
-    IconButton,
-    InputAdornment,
-    InputLabel,
-    Typography,
-    TextField,
-    Menu,
-    MenuItem,
-    OutlinedInput,
-    Select
-} from '@mui/material';
+import { Box, Button, CardContent, FormControl, InputLabel, OutlinedInput } from '@mui/material';
 
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
@@ -34,39 +13,17 @@ import useScriptRef from 'hooks/useScriptRef';
 import AnimateButton from 'ui-component/extended/AnimateButton';
 
 // third party
-import * as Yup from 'yup';
 import { Formik } from 'formik';
 import _get from 'lodash.get';
 
 // assets
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 const WishCard = ({ isLoading }) => {
     const theme = useTheme();
     const scriptedRef = useScriptRef();
-    const navigate = useNavigate();
-    const location = useLocation();
-    const fromUrl = _get(location, 'state.from.pathname');
-    const [anchorEl, setAnchorEl] = useState(null);
     const authDispatch = useContext(AuthDispatchContext);
-    const { first_name, desc, wishlist1, wishlist2, wishlist3 } = useContext(AuthStateContext);
-    const [showPassword, setShowPassword] = useState(false);
-    const handleClickShowPassword = () => {
-        setShowPassword(!showPassword);
-    };
-
-    const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-
-    const signInSuccess = (userData) => {
-        signIn(authDispatch, userData);
-        navigate('/kris-kringle');
-    };
+    const { first_name, wishlist1, wishlist2, wishlist3 } = useContext(AuthStateContext);
+    const [isEdit, setIsEdit] = useState(!(wishlist1 && wishlist2 && wishlist3));
 
     const signInFail = () => {
         signInFailure(authDispatch);
@@ -85,16 +42,17 @@ const WishCard = ({ isLoading }) => {
                     <CardContent>
                         <Formik
                             initialValues={{
-                                wishlist1: '',
-                                wishlist2: '',
-                                wishlist3: '',
+                                wishlist1,
+                                wishlist2,
+                                wishlist3,
                                 submit: null
                             }}
-                            onSubmit={async (values, { resetForm, setErrors, setStatus, setSubmitting }) => {
+                            onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                                 try {
                                     const userData = { ...values };
                                     setSubmitting(true);
                                     updateWL(userData, first_name);
+                                    setIsEdit(false);
                                 } catch (err) {
                                     console.error(err);
                                     if (scriptedRef.current) {
@@ -107,70 +65,90 @@ const WishCard = ({ isLoading }) => {
                             }}
                         >
                             {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
-                                <form noValidate onSubmit={handleSubmit}>
-                                    <FormControl fullWidth sx={{ ...theme.typography.customInput }}>
-                                        <InputLabel htmlFor="outlined-adornment-email-login">Item #1: {wishlist1}</InputLabel>
-                                        <OutlinedInput
-                                            id="outlined-adornment-password-login"
-                                            type="wishlist1"
-                                            value={values.wishlist1}
-                                            name="wishlist1"
-                                            onBlur={handleBlur}
-                                            onChange={handleChange}
-                                            inputProps={{}}
-                                        />
-                                    </FormControl>
-
-                                    <FormControl
-                                        fullWidth
-                                        error={Boolean(touched.password && errors.password)}
-                                        sx={{ ...theme.typography.customInput }}
-                                    >
-                                        <InputLabel htmlFor="outlined-adornment-email-login">Item #2: {wishlist2}</InputLabel>
-                                        <OutlinedInput
-                                            id="outlined-adornment-password-login"
-                                            type="wishlist2"
-                                            value={values.wishlist2}
-                                            name="wishlist2"
-                                            onBlur={handleBlur}
-                                            onChange={handleChange}
-                                            inputProps={{}}
-                                        />
-                                    </FormControl>
-
-                                    <FormControl
-                                        fullWidth
-                                        error={Boolean(touched.password && errors.password)}
-                                        sx={{ ...theme.typography.customInput }}
-                                    >
-                                        <InputLabel htmlFor="outlined-adornment-email-login">Item #3: {wishlist3}</InputLabel>
-                                        <OutlinedInput
-                                            id="outlined-adornment-password-login"
-                                            type="wishlist3"
-                                            value={values.wishlist3}
-                                            name="wishlist3"
-                                            onBlur={handleBlur}
-                                            onChange={handleChange}
-                                            inputProps={{}}
-                                        />
-                                    </FormControl>
-
-                                    <Box>
-                                        <AnimateButton>
+                                <>
+                                    {(wishlist1 || wishlist2 || wishlist3) && !isEdit && !isSubmitting ? (
+                                        <>
+                                            <p>Item #1: {wishlist1}</p>
+                                            <p>Item #2: {wishlist2}</p>
+                                            <p>Item #3: {wishlist3}</p>
                                             <Button
                                                 disableElevation
                                                 disabled={isSubmitting}
                                                 fullWidth
                                                 size="small"
-                                                type="submit"
+                                                type="button"
                                                 variant="contained"
-                                                color="primary"
+                                                color="orange"
+                                                sx={{ color: 'white' }}
+                                                onClick={() => setIsEdit(!isEdit)}
                                             >
-                                                Update Wishlist
+                                                Change Wishlist
                                             </Button>
-                                        </AnimateButton>
-                                    </Box>
-                                </form>
+                                        </>
+                                    ) : (
+                                        <form noValidate onSubmit={handleSubmit}>
+                                            <FormControl fullWidth sx={{ ...theme.typography.customInput }}>
+                                                <InputLabel htmlFor="outlined-adornment-email-login">Item #1</InputLabel>
+                                                <OutlinedInput
+                                                    id="outlined-adornment-password-login"
+                                                    type="wishlist1"
+                                                    value={values.wishlist1}
+                                                    name="wishlist1"
+                                                    onBlur={handleBlur}
+                                                    onChange={handleChange}
+                                                />
+                                            </FormControl>
+
+                                            <FormControl
+                                                fullWidth
+                                                error={Boolean(touched.password && errors.password)}
+                                                sx={{ ...theme.typography.customInput }}
+                                            >
+                                                <InputLabel htmlFor="outlined-adornment-email-login">Item #2</InputLabel>
+                                                <OutlinedInput
+                                                    id="outlined-adornment-password-login"
+                                                    type="wishlist2"
+                                                    value={values.wishlist2}
+                                                    name="wishlist2"
+                                                    onBlur={handleBlur}
+                                                    onChange={handleChange}
+                                                />
+                                            </FormControl>
+
+                                            <FormControl
+                                                fullWidth
+                                                error={Boolean(touched.password && errors.password)}
+                                                sx={{ ...theme.typography.customInput }}
+                                            >
+                                                <InputLabel htmlFor="outlined-adornment-email-login">Item #3</InputLabel>
+                                                <OutlinedInput
+                                                    id="outlined-adornment-password-login"
+                                                    type="wishlist3"
+                                                    value={values.wishlist3}
+                                                    name="wishlist3"
+                                                    onBlur={handleBlur}
+                                                    onChange={handleChange}
+                                                />
+                                            </FormControl>
+
+                                            <Box>
+                                                <AnimateButton>
+                                                    <Button
+                                                        disableElevation
+                                                        disabled={isSubmitting}
+                                                        fullWidth
+                                                        size="small"
+                                                        type="submit"
+                                                        variant="contained"
+                                                        color="primary"
+                                                    >
+                                                        Update Wishlist
+                                                    </Button>
+                                                </AnimateButton>
+                                            </Box>
+                                        </form>
+                                    )}
+                                </>
                             )}
                         </Formik>
                     </CardContent>

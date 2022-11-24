@@ -1,31 +1,11 @@
 import PropTypes from 'prop-types';
 import { useState, useContext } from 'react';
-import { useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { AuthStateContext, AuthDispatchContext, updateDescription, signInFailure } from 'contexts/user';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import {
-    Avatar,
-    Box,
-    Button,
-    CardContent,
-    Divider,
-    FormControl,
-    FormControlLabel,
-    FormHelperText,
-    Grid,
-    IconButton,
-    InputAdornment,
-    InputLabel,
-    Typography,
-    TextField,
-    Menu,
-    MenuItem,
-    OutlinedInput,
-    Select
-} from '@mui/material';
+import { Box, Button, CardContent, FormControl, InputLabel, Typography, OutlinedInput } from '@mui/material';
 
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
@@ -34,30 +14,16 @@ import useScriptRef from 'hooks/useScriptRef';
 import AnimateButton from 'ui-component/extended/AnimateButton';
 
 // third party
-import * as Yup from 'yup';
 import { Formik } from 'formik';
 import _get from 'lodash.get';
 
 const DescCard = ({ isLoading }) => {
     const theme = useTheme();
     const scriptedRef = useScriptRef();
-    const navigate = useNavigate();
-    const location = useLocation();
-    const fromUrl = _get(location, 'state.from.pathname');
-    const [anchorEl, setAnchorEl] = useState(null);
+
     const authDispatch = useContext(AuthDispatchContext);
     const { first_name, desc } = useContext(AuthStateContext);
-    const [showPassword, setShowPassword] = useState(false);
-    const handleClickShowPassword = () => {
-        setShowPassword(!showPassword);
-    };
-
-    const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+    const [isEdit, setIsEdit] = useState(!desc);
 
     const updateDesc = (userData) => {
         updateDescription(authDispatch, userData, first_name);
@@ -77,14 +43,15 @@ const DescCard = ({ isLoading }) => {
                         <Formik
                             enableReinitialize
                             initialValues={{
-                                desc: '',
+                                desc,
                                 submit: null
                             }}
-                            onSubmit={async (values, { resetForm, setErrors, setStatus, setSubmitting }) => {
+                            onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                                 try {
                                     const userData = { ...values };
                                     setSubmitting(true);
                                     updateDesc(userData);
+                                    setIsEdit(false);
                                 } catch (err) {
                                     console.error(err);
                                     if (scriptedRef.current) {
@@ -97,41 +64,62 @@ const DescCard = ({ isLoading }) => {
                             }}
                         >
                             {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
-                                <form noValidate onSubmit={handleSubmit}>
-                                    <FormControl
-                                        fullWidth
-                                        error={Boolean(touched.password && errors.password)}
-                                        sx={{ ...theme.typography.customInput }}
-                                    >
-                                        <InputLabel htmlFor="outlined-adornment-email-login">{desc}</InputLabel>
-                                        <OutlinedInput
-                                            id="outlined-adornment-password-login"
-                                            type="desc"
-                                            value={values.desc}
-                                            name="desc"
-                                            onBlur={handleBlur}
-                                            onChange={handleChange}
-                                            inputProps={{}}
-                                        />
-                                    </FormControl>
-
-                                    <Box>
-                                        <AnimateButton>
+                                <>
+                                    {desc && !isEdit && !isSubmitting ? (
+                                        <>
+                                            <p>{desc}</p>
                                             <Button
                                                 disableElevation
                                                 disabled={isSubmitting}
                                                 fullWidth
                                                 size="small"
-                                                type="submit"
+                                                type="button"
                                                 variant="contained"
                                                 color="orange"
                                                 sx={{ color: 'white' }}
+                                                onClick={() => setIsEdit(!isEdit)}
                                             >
-                                                Submit Description
+                                                Change Description
                                             </Button>
-                                        </AnimateButton>
-                                    </Box>
-                                </form>
+                                        </>
+                                    ) : (
+                                        <form noValidate onSubmit={handleSubmit}>
+                                            <FormControl
+                                                fullWidth
+                                                error={Boolean(touched.password && errors.password)}
+                                                sx={{ ...theme.typography.customInput }}
+                                            >
+                                                <OutlinedInput
+                                                    id="outlined-adornment-password-login"
+                                                    type="desc"
+                                                    value={values.desc}
+                                                    name="desc"
+                                                    onBlur={handleBlur}
+                                                    onChange={handleChange}
+                                                    multiline
+                                                    rows={2}
+                                                />
+                                            </FormControl>
+
+                                            <Box>
+                                                <AnimateButton>
+                                                    <Button
+                                                        disableElevation
+                                                        disabled={isSubmitting}
+                                                        fullWidth
+                                                        size="small"
+                                                        type="submit"
+                                                        variant="contained"
+                                                        color="orange"
+                                                        sx={{ color: 'white' }}
+                                                    >
+                                                        Submit Description
+                                                    </Button>
+                                                </AnimateButton>
+                                            </Box>
+                                        </form>
+                                    )}
+                                </>
                             )}
                         </Formik>
                     </CardContent>
