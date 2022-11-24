@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { AuthStateContext, AuthDispatchContext, signInFailure, updateWishList } from 'contexts/user';
 
 // material-ui
@@ -24,6 +24,32 @@ const WishCard = ({ isLoading }) => {
     const { first_name, wishlist1, wishlist2, wishlist3 } = useContext(AuthStateContext);
     const [isEdit, setIsEdit] = useState(!(wishlist1 && wishlist2 && wishlist3));
 
+    // best way to fix this is to listen to the login event
+    const userWishlist1 = useRef(wishlist1);
+    const userWishlist2 = useRef(wishlist2);
+    const userWishlist3 = useRef(wishlist3);
+    const userName = useRef(first_name);
+
+    const initialValues = {
+        wishlist1,
+        wishlist2,
+        wishlist3,
+        submit: null
+    };
+
+    useEffect(() => {
+        if (
+            (userWishlist1.current !== wishlist1 || userWishlist2.current !== wishlist2 || userWishlist3.current !== wishlist3) &&
+            userName.current !== first_name
+        ) {
+            setIsEdit(!(wishlist1 && wishlist2 && wishlist3));
+            userName.current = first_name;
+            userWishlist1.current = wishlist1;
+            userWishlist2.current = wishlist2;
+            userWishlist3.current = wishlist3;
+        }
+    }, [wishlist1, wishlist2, wishlist3, first_name]);
+
     const signInFail = () => {
         signInFailure(authDispatch);
     };
@@ -40,12 +66,8 @@ const WishCard = ({ isLoading }) => {
                 <MainCard title="Your Wishlist (optional)" content={false} sx={{ backgroundColor: '#ffb8bf' }}>
                     <CardContent>
                         <Formik
-                            initialValues={{
-                                wishlist1,
-                                wishlist2,
-                                wishlist3,
-                                submit: null
-                            }}
+                            enableReinitialize
+                            initialValues={initialValues}
                             onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                                 try {
                                     const userData = { ...values };
@@ -65,7 +87,7 @@ const WishCard = ({ isLoading }) => {
                         >
                             {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
                                 <>
-                                    {(wishlist1 || wishlist2 || wishlist3) && !isEdit && !isSubmitting ? (
+                                    {!isEdit && !isSubmitting ? (
                                         <>
                                             <MainCard
                                                 sx={{
