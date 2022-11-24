@@ -28,7 +28,6 @@ const DescCard = ({ isLoading }) => {
     const updateDesc = (userData) => {
         updateDescription(authDispatch, userData, first_name);
     };
-
     const signInFail = () => {
         signInFailure(authDispatch);
     };
@@ -37,9 +36,12 @@ const DescCard = ({ isLoading }) => {
             {isLoading ? (
                 <SkeletonPopularCard />
             ) : (
-                <MainCard content={false} sx={{ backgroundColor: '#D0F0C0' }}>
+                <MainCard
+                    title="How would you describe your monito/monita?"
+                    content={false}
+                    sx={{ backgroundColor: '#D0F0C0', height: 258 }}
+                >
                     <CardContent>
-                        <Typography variant="h4">How would you describe your monito/monita?</Typography>
                         <Formik
                             enableReinitialize
                             initialValues={{
@@ -67,7 +69,18 @@ const DescCard = ({ isLoading }) => {
                                 <>
                                     {desc && !isEdit && !isSubmitting ? (
                                         <>
-                                            <p>{desc}</p>
+                                            <MainCard
+                                                sx={{
+                                                    mb: 2.6,
+                                                    backgroundColor: 'transparent',
+                                                    color: 'black',
+                                                    height: 86,
+                                                    mt: 1,
+                                                    borderColor: '#30b05a'
+                                                }}
+                                            >
+                                                {desc}
+                                            </MainCard>
                                             <Button
                                                 disableElevation
                                                 disabled={isSubmitting}
@@ -75,8 +88,7 @@ const DescCard = ({ isLoading }) => {
                                                 size="small"
                                                 type="button"
                                                 variant="contained"
-                                                color="orange"
-                                                sx={{ color: 'white' }}
+                                                color="success"
                                                 onClick={() => setIsEdit(!isEdit)}
                                             >
                                                 Change Description
@@ -98,6 +110,7 @@ const DescCard = ({ isLoading }) => {
                                                     onChange={handleChange}
                                                     multiline
                                                     rows={2}
+                                                    sx={{ height: 86, mb: 1.5 }}
                                                 />
                                             </FormControl>
 
@@ -110,8 +123,7 @@ const DescCard = ({ isLoading }) => {
                                                         size="small"
                                                         type="submit"
                                                         variant="contained"
-                                                        color="orange"
-                                                        sx={{ color: 'white' }}
+                                                        color="success"
                                                     >
                                                         Submit Description
                                                     </Button>

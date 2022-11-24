@@ -28,17 +28,17 @@ const SamplePage = () => {
             <Grid item xs={12}>
                 <Grid container spacing={gridSpacing}>
                     <Grid item lg={4} md={4} sm={12} xs={12}>
-                        <MainCard sx={{ height: 187 }}>
-                            <Grid container direction="column" alignItems="center" justifyContent="space-between" sx={{ pt: 5, px: 5 }}>
-                                <Typography variant="h3">Hello,</Typography>
-                                <Typography variant="h1">{first_name}!</Typography>
+                        <MainCard sx={{ height: 258 }}>
+                            <Grid container direction="column" alignItems="center" justifyContent="space-between" sx={{ pt: 8, px: 5 }}>
+                                <Typography sx={{ fontSize: '1.5rem', color: 'black' }}>Hello,</Typography>
+                                <Typography sx={{ fontSize: '3rem', color: 'black' }}>{first_name}!</Typography>
                             </Grid>
                         </MainCard>
                     </Grid>
                     <Grid item lg={4} md={4} sm={12} xs={12}>
-                        <MainCard title="Your monito/monita is..." sx={{ backgroundColor: '#ffb1ab', height: 187 }}>
-                            <Grid container direction="column" alignItems="center" justifyContent="space-between" sx={{ pt: 2, px: 2 }}>
-                                <Typography variant="h2">{recipient}</Typography>
+                        <MainCard title="Your monito/monita is..." sx={{ backgroundColor: '#ffb1ab', height: 258 }}>
+                            <Grid container direction="column" alignItems="center" justifyContent="space-between" sx={{ pt: 5, px: 2 }}>
+                                <Typography variant="h1">{recipient}</Typography>
                             </Grid>
                         </MainCard>
                     </Grid>
@@ -61,12 +61,11 @@ const SamplePage = () => {
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
                         <Grid container spacing={gridSpacing}>
-                            <Grid item sm={6} xs={12} md={6} lg={6}>
-                                <LoginCard isLoading={isLoading} />
-                            </Grid>
-                            <Grid item sm={6} xs={12} md={6} lg={6}>
+                            <Grid item sm={3} xs={2} md={4} lg={4}></Grid>
+                            <Grid item sm={6} xs={8} md={4} lg={4}>
                                 <LogoutCard isLoading={isLoading} />
                             </Grid>
+                            <Grid item sm={3} xs={2} md={4} lg={4}></Grid>
                         </Grid>
                     </Grid>
                 </Grid>

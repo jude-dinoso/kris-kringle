@@ -38,7 +38,7 @@ const WishCard = ({ isLoading }) => {
             {isLoading ? (
                 <SkeletonPopularCard />
             ) : (
-                <MainCard title="Your Wishlist (optional)" content={false} sx={{ backgroundColor: '#f4abb4' }}>
+                <MainCard title="Your Wishlist (optional)" content={false} sx={{ backgroundColor: '#ffb8bf' }}>
                     <CardContent>
                         <Formik
                             initialValues={{
@@ -68,9 +68,40 @@ const WishCard = ({ isLoading }) => {
                                 <>
                                     {(wishlist1 || wishlist2 || wishlist3) && !isEdit && !isSubmitting ? (
                                         <>
-                                            <p>Item #1: {wishlist1}</p>
-                                            <p>Item #2: {wishlist2}</p>
-                                            <p>Item #3: {wishlist3}</p>
+                                            <MainCard
+                                                sx={{
+                                                    mt: 1.7,
+                                                    height: 60,
+                                                    backgroundColor: 'transparent',
+                                                    color: 'black',
+                                                    borderColor: '#fb928e'
+                                                }}
+                                            >
+                                                Item #1: {wishlist1}
+                                            </MainCard>
+                                            <MainCard
+                                                sx={{
+                                                    mt: 1.7,
+                                                    height: 60,
+                                                    backgroundColor: 'transparent',
+                                                    color: 'black',
+                                                    borderColor: '#fb928e'
+                                                }}
+                                            >
+                                                Item #1: {wishlist2}
+                                            </MainCard>
+                                            <MainCard
+                                                sx={{
+                                                    mt: 1.7,
+                                                    mb: 1.5,
+                                                    height: 60,
+                                                    backgroundColor: 'transparent',
+                                                    color: 'black',
+                                                    borderColor: '#fb928e'
+                                                }}
+                                            >
+                                                Item #1: {wishlist3}
+                                            </MainCard>
                                             <Button
                                                 disableElevation
                                                 disabled={isSubmitting}
@@ -79,7 +110,7 @@ const WishCard = ({ isLoading }) => {
                                                 type="button"
                                                 variant="contained"
                                                 color="orange"
-                                                sx={{ color: 'white' }}
+                                                sx={{ color: 'black' }}
                                                 onClick={() => setIsEdit(!isEdit)}
                                             >
                                                 Change Wishlist
@@ -140,7 +171,8 @@ const WishCard = ({ isLoading }) => {
                                                         size="small"
                                                         type="submit"
                                                         variant="contained"
-                                                        color="primary"
+                                                        color="orange"
+                                                        sx={{ color: 'black' }}
                                                     >
                                                         Update Wishlist
                                                     </Button>
