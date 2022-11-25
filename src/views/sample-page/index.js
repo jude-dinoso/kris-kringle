@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Typography } from '@mui/material';
 import { Grid } from '@mui/material';
 import DescCard from './DescCard';
+import LoginCard from 'views/dashboard/Default/LoginCard';
 import LogoutCard from './LogoutCard';
 import WishCard from './WishCard';
 import { gridSpacing } from 'store/constant';
@@ -60,10 +61,10 @@ const SamplePage = () => {
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
                         <Grid container spacing={gridSpacing}>
-                            <Grid item sm={6} xs={12} md={4} lg={4}>
+                            <Grid item sm={6} xs={12} md={6} lg={6}>
                                 <LoginCard isLoading={isLoading} />
                             </Grid>
-                            <Grid item sm={6} xs={12} md={4} lg={4}>
+                            <Grid item sm={6} xs={12} md={6} lg={6}>
                                 <LogoutCard isLoading={isLoading} />
                             </Grid>
                         </Grid>
