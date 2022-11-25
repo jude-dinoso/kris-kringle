@@ -17,6 +17,9 @@ import { gridSpacing } from 'store/constant';
 const ContributionCard = ({ isLoading }) => {
     const [open, setOpen] = React.useState(false);
     const [openSRMC, setOpenSRMC] = React.useState(false);
+    const [openCSJ, setOpenCSJ] = React.useState(false);
+    const [openESJ, setOpenESJ] = React.useState(false);
+    const [openRSJ, setOpenRSJ] = React.useState(false);
     const theme = useTheme();
     const handleClickOpen = () => {
         setOpen(true);
@@ -29,6 +32,24 @@ const ContributionCard = ({ isLoading }) => {
     };
     const handleCloseSRMC = () => {
         setOpenSRMC(false);
+    };
+    const handleClickOpenCSJ = () => {
+        setOpenCSJ(true);
+    };
+    const handleCloseCSJ = () => {
+        setOpenCSJ(false);
+    };
+    const handleClickOpenESJ = () => {
+        setOpenESJ(true);
+    };
+    const handleCloseESJ = () => {
+        setOpenESJ(false);
+    };
+    const handleClickOpenRSJ = () => {
+        setOpenRSJ(true);
+    };
+    const handleCloseRSJ = () => {
+        setOpenRSJ(false);
     };
     return (
         <>
@@ -110,6 +131,139 @@ const ContributionCard = ({ isLoading }) => {
                                         <Typography variant="subtitle2">3rd Generation - Single & Employed</Typography>
                                     </Grid>
                                 </Grid>
+                                <Divider sx={{ my: 1.5 }} />
+                                <Grid item>
+                                    <Typography variant="subtitle1" color="inherit">
+                                        Total contribution amount: Php15600
+                                    </Typography>
+                                    <Typography variant="subtitle2" color="inherit">
+                                        Contribution breakdown:
+                                    </Typography>
+                                    <Grid container xs={12} align="center">
+                                        <Grid item xs={4}>
+                                            <Avatar
+                                                variant="rounded"
+                                                sx={{
+                                                    ...theme.typography.commonAvatar,
+                                                    ...theme.typography.medAvatar,
+                                                    backgroundColor: 'black',
+                                                    color: 'white',
+                                                    my: 1
+                                                }}
+                                                onClick={handleClickOpenRSJ}
+                                            >
+                                                RSJ
+                                            </Avatar>
+                                            <Dialog
+                                                open={openRSJ}
+                                                onClose={handleCloseRSJ}
+                                                aria-labelledby="alert-dialog-title"
+                                                aria-describedby="alert-dialog-description"
+                                            >
+                                                <DialogTitle variant="h3" align="center">
+                                                    RSJ Total: Php9000
+                                                </DialogTitle>
+                                                <DialogContent align="center">
+                                                    <p>Nita - Php700</p>
+                                                    <p>Baby - Php500</p>
+                                                    <p>Harold - Php400</p>
+                                                    <p>Carl - Php300</p>
+                                                    <p>Jan - Php300</p>
+                                                    <p>Malou - Php500</p>
+                                                    <p>Rpee - Php300</p>
+                                                    <p>Marwin - Php300</p>
+                                                    <p>Diane(Raffy) - Php500</p>
+                                                    <p>Majo - Php400</p>
+                                                    <p>Sean - Php400</p>
+                                                    <p>Zeny - Php500</p>
+                                                    <p>Hazel - Php400</p>
+                                                    <p>Frances - Php400</p>
+                                                    <p>Mark - Php400</p>
+                                                    <p>Katrina - Php400</p>
+                                                    <p>Dennis - Php500</p>
+                                                    <p>Felix - Php400</p>
+                                                    <p>Denise - Php300</p>
+                                                    <p>Danny - Php500</p>
+                                                    <p>Dan Marlou - Php300</p>
+                                                    <p>Daene - Php300</p>
+                                                </DialogContent>
+                                            </Dialog>
+                                        </Grid>
+                                        <Grid item xs={4}>
+                                            <Avatar
+                                                variant="rounded"
+                                                sx={{
+                                                    ...theme.typography.commonAvatar,
+                                                    ...theme.typography.medAvatar,
+                                                    backgroundColor: 'black',
+                                                    color: 'white',
+                                                    my: 1
+                                                }}
+                                                onClick={handleClickOpenESJ}
+                                            >
+                                                ESJ
+                                            </Avatar>
+                                            <Dialog
+                                                open={openESJ}
+                                                onClose={handleCloseESJ}
+                                                aria-labelledby="alert-dialog-title"
+                                                aria-describedby="alert-dialog-description"
+                                            >
+                                                <DialogTitle variant="h3" align="center">
+                                                    ESJ Total: Php2900
+                                                </DialogTitle>
+                                                <DialogContent align="center">
+                                                    <p>Lita - Php700</p>
+                                                    <p>Peen - Php500</p>
+                                                    <p>Tessa - Php300</p>
+                                                    <p>Kaye - Php300</p>
+                                                    <p>TJ - Php300</p>
+                                                    <p>Gie - Php500</p>
+                                                    <p>Joelle - Php300</p>
+                                                    <p>Pam - Php300</p>
+                                                </DialogContent>
+                                            </Dialog>
+                                        </Grid>
+                                        <Grid item xs={4}>
+                                            <Avatar
+                                                variant="rounded"
+                                                sx={{
+                                                    ...theme.typography.commonAvatar,
+                                                    ...theme.typography.medAvatar,
+                                                    backgroundColor: 'black',
+                                                    color: 'white',
+                                                    my: 1
+                                                }}
+                                                onClick={handleClickOpenCSJ}
+                                            >
+                                                CSJ
+                                            </Avatar>
+                                            <Dialog
+                                                open={openCSJ}
+                                                onClose={handleCloseCSJ}
+                                                aria-labelledby="alert-dialog-title"
+                                                aria-describedby="alert-dialog-description"
+                                            >
+                                                <DialogTitle variant="h3" align="center">
+                                                    CSJ Total: Php3700
+                                                </DialogTitle>
+                                                <DialogContent align="center">
+                                                    <p>Clarita - Php700</p>
+                                                    <p>Santy - Php500</p>
+                                                    <p>Crispin - Php500</p>
+                                                    <p>Baba - Php300</p>
+                                                    <p>Renren - Php300</p>
+                                                    <p>Kulot - Php500</p>
+                                                    <p>MC - Php300</p>
+                                                    <p>Ian - Php300</p>
+                                                </DialogContent>
+                                            </Dialog>
+                                        </Grid>
+                                    </Grid>
+                                    <Typography variant="subtitle2" color="inherit">
+                                        Contribution deadline: 12/18
+                                    </Typography>
+                                </Grid>
                             </Grid>
                             <Grid item xs={6}>
                                 <Grid container direction="column">
@@ -132,7 +286,7 @@ const ContributionCard = ({ isLoading }) => {
                                     </Grid>
                                     <Divider sx={{ my: 1.5 }} />
                                     <Grid item>
-                                        <Typography variant="subtitle2" color="black">
+                                        <Typography variant="subtitle2" color="inherit">
                                             Modes of payment:
                                         </Typography>
                                         <Grid container xs={12} align="center">
@@ -191,9 +345,6 @@ const ContributionCard = ({ isLoading }) => {
                                                 </Dialog>
                                             </Grid>
                                         </Grid>
-                                        <Typography variant="subtitle2" color="black">
-                                            Please submit contributions by December 18th.
-                                        </Typography>
                                     </Grid>
                                 </Grid>
                             </Grid>
