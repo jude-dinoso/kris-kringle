@@ -63,7 +63,7 @@ const WishCard = ({ isLoading }) => {
             {isLoading ? (
                 <SkeletonPopularCard />
             ) : (
-                <MainCard title="Your Wishlist (optional)" content={false} sx={{ backgroundColor: '#ffb8bf' }}>
+                <MainCard title="Your Wishlist (optional)" content={false} sx={{ backgroundColor: '#ffb8bf', height: 420 }}>
                     <CardContent>
                         <Formik
                             enableReinitialize
@@ -92,7 +92,7 @@ const WishCard = ({ isLoading }) => {
                                             <MainCard
                                                 sx={{
                                                     mt: 1.7,
-                                                    height: 60,
+                                                    height: 70,
                                                     backgroundColor: 'transparent',
                                                     color: 'black',
                                                     borderColor: '#fb928e'
@@ -103,25 +103,25 @@ const WishCard = ({ isLoading }) => {
                                             <MainCard
                                                 sx={{
                                                     mt: 1.7,
-                                                    height: 60,
+                                                    height: 70,
                                                     backgroundColor: 'transparent',
                                                     color: 'black',
                                                     borderColor: '#fb928e'
                                                 }}
                                             >
-                                                Item #1: {wishlist2}
+                                                Item #2: {wishlist2}
                                             </MainCard>
                                             <MainCard
                                                 sx={{
                                                     mt: 1.7,
                                                     mb: 1.5,
-                                                    height: 60,
+                                                    height: 70,
                                                     backgroundColor: 'transparent',
                                                     color: 'black',
                                                     borderColor: '#fb928e'
                                                 }}
                                             >
-                                                Item #1: {wishlist3}
+                                                Item #3: {wishlist3}
                                             </MainCard>
                                             <Button
                                                 disableElevation
