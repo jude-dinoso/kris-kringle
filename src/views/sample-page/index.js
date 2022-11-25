@@ -28,7 +28,7 @@ const SamplePage = () => {
                 <Grid container spacing={gridSpacing}>
                     <Grid item lg={4} md={4} sm={12} xs={12}>
                         <MainCard sx={{ height: 258 }}>
-                            <Grid container direction="column" alignItems="center" justifyContent="space-between" sx={{ pt: 8, px: 5 }}>
+                            <Grid container direction="column" alignItems="center" justifyContent="space-between" sx={{ pt: 8 }}>
                                 <Typography sx={{ fontSize: '1.5rem', color: 'black' }}>Hello,</Typography>
                                 <Typography sx={{ fontSize: '3rem', color: 'black' }}>{first_name}!</Typography>
                             </Grid>
@@ -60,11 +60,12 @@ const SamplePage = () => {
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
                         <Grid container spacing={gridSpacing}>
-                            <Grid item sm={3} xs={2} md={4} lg={4}></Grid>
-                            <Grid item sm={6} xs={8} md={4} lg={4}>
+                            <Grid item sm={6} xs={12} md={4} lg={4}>
+                                <LoginCard isLoading={isLoading} />
+                            </Grid>
+                            <Grid item sm={6} xs={12} md={4} lg={4}>
                                 <LogoutCard isLoading={isLoading} />
                             </Grid>
-                            <Grid item sm={3} xs={2} md={4} lg={4}></Grid>
                         </Grid>
                     </Grid>
                 </Grid>
