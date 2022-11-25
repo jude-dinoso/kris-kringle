@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect, useRef } from 'react';
 import { AuthStateContext, AuthDispatchContext, updateDescription, signInFailure } from 'contexts/user';
 
 // material-ui
@@ -23,6 +23,23 @@ const DescCard = ({ isLoading }) => {
     const { first_name, desc } = useContext(AuthStateContext);
     const [isEdit, setIsEdit] = useState(!desc);
 
+    // best way to fix this is to listen to the login event
+    const userDesc = useRef(desc);
+    const userName = useRef(first_name);
+
+    const initialValues = {
+        desc,
+        submit: null
+    };
+
+    useEffect(() => {
+        if (userDesc.current !== desc && userName.current !== first_name) {
+            setIsEdit(!desc);
+            userName.current = first_name;
+            userDesc.current = desc;
+        }
+    }, [desc, first_name]);
+
     const updateDesc = (userData) => {
         updateDescription(authDispatch, userData, first_name);
     };
@@ -42,10 +59,7 @@ const DescCard = ({ isLoading }) => {
                     <CardContent>
                         <Formik
                             enableReinitialize
-                            initialValues={{
-                                desc,
-                                submit: null
-                            }}
+                            initialValues={initialValues}
                             onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                                 try {
                                     const userData = { ...values };
@@ -65,7 +79,7 @@ const DescCard = ({ isLoading }) => {
                         >
                             {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
                                 <>
-                                    {desc && !isEdit && !isSubmitting ? (
+                                    {!isEdit && !isSubmitting ? (
                                         <>
                                             <MainCard
                                                 sx={{
