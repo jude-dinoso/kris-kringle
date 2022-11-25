@@ -3,14 +3,14 @@ import { useNavigate } from 'react-router-dom';
 // material-ui
 import { Typography } from '@mui/material';
 import { Grid } from '@mui/material';
-import LoginCard from 'views/dashboard/Default/LoginCard';
 import DescCard from './DescCard';
+import LoginCard from 'views/dashboard/Default/LoginCard';
 import LogoutCard from './LogoutCard';
 import WishCard from './WishCard';
 import { gridSpacing } from 'store/constant';
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
-import { AuthStateContext, AuthDispatchContext } from 'contexts/user';
+import { AuthStateContext } from 'contexts/user';
 
 const SamplePage = () => {
     const [isLoading, setLoading] = useState(true);
@@ -21,7 +21,7 @@ const SamplePage = () => {
         if (!isLoggedIn) {
             navigate('/dashboard/default');
         }
-    }, []);
+    }, [isLoggedIn, navigate]);
 
     return (
         <Grid container spacing={gridSpacing}>
@@ -29,7 +29,7 @@ const SamplePage = () => {
                 <Grid container spacing={gridSpacing}>
                     <Grid item lg={4} md={4} sm={12} xs={12}>
                         <MainCard sx={{ height: 258 }}>
-                            <Grid container direction="column" alignItems="center" justifyContent="space-between" sx={{ pt: 8, px: 5 }}>
+                            <Grid container direction="column" alignItems="center" justifyContent="space-between" sx={{ pt: 8 }}>
                                 <Typography sx={{ fontSize: '1.5rem', color: 'black' }}>Hello,</Typography>
                                 <Typography sx={{ fontSize: '3rem', color: 'black' }}>{first_name}!</Typography>
                             </Grid>
@@ -61,11 +61,12 @@ const SamplePage = () => {
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
                         <Grid container spacing={gridSpacing}>
-                            <Grid item sm={3} xs={2} md={4} lg={4}></Grid>
-                            <Grid item sm={6} xs={8} md={4} lg={4}>
+                            <Grid item sm={6} xs={12} md={6} lg={6}>
+                                <LoginCard isLoading={isLoading} />
+                            </Grid>
+                            <Grid item sm={6} xs={12} md={6} lg={6}>
                                 <LogoutCard isLoading={isLoading} />
                             </Grid>
-                            <Grid item sm={3} xs={2} md={4} lg={4}></Grid>
                         </Grid>
                     </Grid>
                 </Grid>

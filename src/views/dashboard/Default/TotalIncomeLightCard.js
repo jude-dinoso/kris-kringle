@@ -9,7 +9,6 @@ import MainCard from 'ui-component/cards/MainCard';
 import TotalIncomeCard from 'ui-component/cards/Skeleton/TotalIncomeCard';
 
 // assets
-import StorefrontTwoToneIcon from '@mui/icons-material/StorefrontTwoTone';
 import VolunteerActivismRoundedIcon from '@mui/icons-material/VolunteerActivismRounded';
 
 // styles
