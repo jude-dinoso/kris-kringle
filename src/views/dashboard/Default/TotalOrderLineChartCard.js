@@ -1,20 +1,16 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 
 // material-ui
 import { useTheme, styled } from '@mui/material/styles';
-import { Avatar, Box, Button, Grid, Typography } from '@mui/material';
+import { Avatar, Box, Grid, Typography } from '@mui/material';
 
 // third-party
-import Chart from 'react-apexcharts';
 
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
 import SkeletonTotalOrderCard from 'ui-component/cards/Skeleton/EarningCard';
 
 // assets
-import CardGiftcardRoundedIcon from '@mui/icons-material/CardGiftcardRounded';
-import WarehouseOutlinedIcon from '@mui/icons-material/WarehouseOutlined';
 import GiftIcon from 'assets/images/icons/gift.svg';
 
 const CardWrapper = styled(MainCard)(({ theme }) => ({
@@ -63,11 +59,6 @@ const CardWrapper = styled(MainCard)(({ theme }) => ({
 
 const TotalOrderLineChartCard = ({ isLoading }) => {
     const theme = useTheme();
-
-    const [timeValue, setTimeValue] = useState(false);
-    const handleChangeTime = (event, newValue) => {
-        setTimeValue(newValue);
-    };
 
     return (
         <>

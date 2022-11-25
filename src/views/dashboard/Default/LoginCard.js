@@ -1,21 +1,16 @@
 import PropTypes from 'prop-types';
 import { useState, useContext } from 'react';
-import { useSelector } from 'react-redux';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { AuthStateContext, AuthDispatchContext, signIn, signInFailure } from 'contexts/user';
+import { useNavigate } from 'react-router-dom';
+import { AuthDispatchContext, signIn, signInFailure } from 'contexts/user';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
 import {
-    Avatar,
     Box,
     Button,
     CardContent,
-    Divider,
     FormControl,
-    FormControlLabel,
     FormHelperText,
-    Grid,
     IconButton,
     InputAdornment,
     InputLabel,
@@ -34,7 +29,6 @@ import AnimateButton from 'ui-component/extended/AnimateButton';
 // third party
 import * as Yup from 'yup';
 import { Formik } from 'formik';
-import _get from 'lodash.get';
 
 // assets
 import Visibility from '@mui/icons-material/Visibility';
@@ -44,21 +38,14 @@ const LoginCard = ({ isLoading }) => {
     const theme = useTheme();
     const scriptedRef = useScriptRef();
     const navigate = useNavigate();
-    const location = useLocation();
-    const fromUrl = _get(location, 'state.from.pathname');
-    const [anchorEl, setAnchorEl] = useState(null);
     const authDispatch = useContext(AuthDispatchContext);
     const [showPassword, setShowPassword] = useState(false);
-    const { isLoggedIn, first_name } = useContext(AuthStateContext);
     const handleClickShowPassword = () => {
         setShowPassword(!showPassword);
     };
 
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
     };
 
     async function SignInSuccess(userData) {
@@ -96,7 +83,7 @@ const LoginCard = ({ isLoading }) => {
                             validationSchema={Yup.object().shape({
                                 password: Yup.string().max(255).required('Password is required')
                             })}
-                            onSubmit={async (values, { resetForm, setErrors, setStatus, setSubmitting }) => {
+                            onSubmit={async (values, { setErrors, setStatus, setSubmitting }) => {
                                 try {
                                     const userData = { ...values };
                                     setSubmitting(true);

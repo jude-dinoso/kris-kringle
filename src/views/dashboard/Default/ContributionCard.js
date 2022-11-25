@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
-import { Avatar, Button, CardActions, CardContent, Divider, Grid, Menu, MenuItem, Typography } from '@mui/material';
+import { CardContent, Divider, Grid, Typography } from '@mui/material';
 
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
@@ -13,18 +11,6 @@ import { gridSpacing } from 'store/constant';
 // ==============================|| DASHBOARD DEFAULT - POPULAR CARD ||============================== //
 
 const ContributionCard = ({ isLoading }) => {
-    const theme = useTheme();
-
-    const [anchorEl, setAnchorEl] = useState(null);
-
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-
     return (
         <>
             {isLoading ? (

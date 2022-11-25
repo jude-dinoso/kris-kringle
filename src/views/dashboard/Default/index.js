@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 // material-ui
 import { Grid } from '@mui/material';
@@ -14,7 +13,6 @@ import TotalIncomeDarkCard from './TotalIncomeDarkCard';
 import TotalIncomeLightCard from './TotalIncomeLightCard';
 import ContributionCard from './ContributionCard';
 import { gridSpacing } from 'store/constant';
-import { AuthStateContext, AuthDispatchContext } from 'contexts/user';
 
 // ==============================|| DEFAULT DASHBOARD ||============================== //
 

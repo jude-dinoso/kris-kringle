@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types';
 import { useState, useContext } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
 import { AuthStateContext, AuthDispatchContext, updateDescription, signInFailure } from 'contexts/user';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import { Box, Button, CardContent, FormControl, InputLabel, Typography, OutlinedInput } from '@mui/material';
+import { Box, Button, CardContent, FormControl, OutlinedInput } from '@mui/material';
 
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
@@ -15,7 +14,6 @@ import AnimateButton from 'ui-component/extended/AnimateButton';
 
 // third party
 import { Formik } from 'formik';
-import _get from 'lodash.get';
 
 const DescCard = ({ isLoading }) => {
     const theme = useTheme();
