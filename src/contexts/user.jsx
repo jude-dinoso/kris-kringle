@@ -1,8 +1,6 @@
-import React, { useReducer, createContext, useEffect } from 'react';
-import _get from 'lodash.get';
-import UseLocalStorage from 'hooks/UseLocalStorage';
+import React, { useReducer, createContext } from 'react';
 import axios from 'axios';
-import { Navigate } from 'react-router';
+import PropTypes from 'prop-types';
 
 const initialState = {
     isLoggedIn: false,
@@ -117,6 +115,7 @@ export async function signIn(dispatch, input) {
                 return true;
             })
             .catch(async function (err) {
+                console.error(err);
                 alert('Invalid Passcode');
                 await dispatch({
                     type: 'LOGIN_FAILURE'
@@ -223,4 +222,5 @@ const UserProvider = ({ children }) => {
         </AuthDispatchContext.Provider>
     );
 };
+UserProvider.propTypes = { children: PropTypes.element };
 export default UserProvider;

@@ -14,7 +14,6 @@ import AnimateButton from 'ui-component/extended/AnimateButton';
 
 // third party
 import { Formik } from 'formik';
-import _get from 'lodash.get';
 
 // assets
 

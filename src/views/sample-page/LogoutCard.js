@@ -1,31 +1,10 @@
 import PropTypes from 'prop-types';
-import { useState, useContext } from 'react';
-import { useSelector } from 'react-redux';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { AuthStateContext, AuthDispatchContext, updateDescription, signInFailure } from 'contexts/user';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthDispatchContext, signInFailure } from 'contexts/user';
 
 // material-ui
-import { useTheme } from '@mui/material/styles';
-import {
-    Avatar,
-    Box,
-    Button,
-    CardContent,
-    Divider,
-    FormControl,
-    FormControlLabel,
-    FormHelperText,
-    Grid,
-    IconButton,
-    InputAdornment,
-    InputLabel,
-    Typography,
-    TextField,
-    Menu,
-    MenuItem,
-    OutlinedInput,
-    Select
-} from '@mui/material';
+import { Box, Button, CardContent } from '@mui/material';
 
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
@@ -34,30 +13,12 @@ import useScriptRef from 'hooks/useScriptRef';
 import AnimateButton from 'ui-component/extended/AnimateButton';
 
 // third party
-import * as Yup from 'yup';
 import { Formik } from 'formik';
-import _get from 'lodash.get';
 
 const LogoutCard = ({ isLoading }) => {
-    const theme = useTheme();
     const scriptedRef = useScriptRef();
     const navigate = useNavigate();
-    const location = useLocation();
-    const fromUrl = _get(location, 'state.from.pathname');
-    const [anchorEl, setAnchorEl] = useState(null);
     const authDispatch = useContext(AuthDispatchContext);
-    const { first_name, desc } = useContext(AuthStateContext);
-    const [showPassword, setShowPassword] = useState(false);
-    const handleClickShowPassword = () => {
-        setShowPassword(!showPassword);
-    };
-
-    const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
 
     const signInFail = () => {
         signInFailure(authDispatch);
@@ -76,9 +37,8 @@ const LogoutCard = ({ isLoading }) => {
                                 desc: '',
                                 submit: null
                             }}
-                            onSubmit={async (values, { resetForm, setErrors, setStatus, setSubmitting }) => {
+                            onSubmit={async ({ setErrors, setStatus, setSubmitting }) => {
                                 try {
-                                    const userData = { ...values };
                                     setSubmitting(true);
                                     signInFail();
                                 } catch (err) {
@@ -92,7 +52,7 @@ const LogoutCard = ({ isLoading }) => {
                                 }
                             }}
                         >
-                            {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
+                            {({ handleSubmit, isSubmitting }) => (
                                 <form noValidate onSubmit={handleSubmit}>
                                     <Box>
                                         <AnimateButton>

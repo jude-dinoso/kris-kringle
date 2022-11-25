@@ -3,14 +3,13 @@ import { useNavigate } from 'react-router-dom';
 // material-ui
 import { Typography } from '@mui/material';
 import { Grid } from '@mui/material';
-import LoginCard from 'views/dashboard/Default/LoginCard';
 import DescCard from './DescCard';
 import LogoutCard from './LogoutCard';
 import WishCard from './WishCard';
 import { gridSpacing } from 'store/constant';
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
-import { AuthStateContext, AuthDispatchContext } from 'contexts/user';
+import { AuthStateContext } from 'contexts/user';
 
 const SamplePage = () => {
     const [isLoading, setLoading] = useState(true);
@@ -21,7 +20,7 @@ const SamplePage = () => {
         if (!isLoggedIn) {
             navigate('/dashboard/default');
         }
-    }, []);
+    }, [isLoggedIn, navigate]);
 
     return (
         <Grid container spacing={gridSpacing}>
