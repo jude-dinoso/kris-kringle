@@ -6,6 +6,7 @@ import { AuthDispatchContext, signIn, signInFailure } from 'contexts/user';
 // material-ui
 import { useTheme } from '@mui/material/styles';
 import {
+    Autocomplete,
     Box,
     Button,
     CardContent,
@@ -14,10 +15,8 @@ import {
     IconButton,
     InputAdornment,
     InputLabel,
-    ListSubheader,
-    MenuItem,
     OutlinedInput,
-    Select
+    TextField
 } from '@mui/material';
 
 // project imports
@@ -34,12 +33,16 @@ import { Formik } from 'formik';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
+import { members } from './family';
+
 const LoginCard = ({ isLoading }) => {
     const theme = useTheme();
     const scriptedRef = useScriptRef();
     const navigate = useNavigate();
     const authDispatch = useContext(AuthDispatchContext);
     const [showPassword, setShowPassword] = useState(false);
+    const [inputValue, setInputValue] = useState('');
+
     const handleClickShowPassword = () => {
         setShowPassword(!showPassword);
     };
@@ -76,7 +79,7 @@ const LoginCard = ({ isLoading }) => {
                     <CardContent>
                         <Formik
                             initialValues={{
-                                first_name: 'User',
+                                first_name: '',
                                 password: '',
                                 submit: null
                             }}
@@ -99,101 +102,23 @@ const LoginCard = ({ isLoading }) => {
                                 }
                             }}
                         >
-                            {({ errors, handleBlur, handleChange, handleSubmit, isSubmitting, touched, values }) => (
+                            {({ errors, handleBlur, handleChange, handleSubmit, setFieldValue, isSubmitting, touched, values }) => (
                                 <form noValidate onSubmit={handleSubmit}>
-                                    <FormControl fullWidth sx={{ ...theme.typography.customInput }}>
-                                        <InputLabel htmlFor="outlined-adornment-email-login">SJ Family Member</InputLabel>
-                                        <Select
+                                    <FormControl fullWidth>
+                                        <Autocomplete
                                             id="outlined-adornment-email-login"
                                             type="first_name"
-                                            value={values.first_name}
                                             name="first_name"
-                                            onBlur={handleBlur}
-                                            onChange={handleChange}
-                                            label="SJ Family Member"
-                                            inputProps={{}}
-                                            sx={{ paddingTop: 2 }}
-                                        >
-                                            <MenuItem value="User" disabled>
-                                                <em>Select from list...</em>
-                                            </MenuItem>
-                                            <ListSubheader sx={{ color: 'black' }}>RSJ</ListSubheader>
-                                            <MenuItem value="Nita">Nita</MenuItem>
-                                            <MenuItem value="Baby">Baby</MenuItem>
-                                            <MenuItem value="Rick">Rick</MenuItem>
-                                            <MenuItem value="Harold">Harold</MenuItem>
-                                            <MenuItem value="Jenn">Jenn</MenuItem>
-                                            <MenuItem value="Grant">Grant</MenuItem>
-                                            <MenuItem value="Carl">Carl</MenuItem>
-                                            <MenuItem value="Jan">Jan</MenuItem>
-                                            <MenuItem value="Edwin">Edwin</MenuItem>
-                                            <MenuItem value="Malou">Malou</MenuItem>
-                                            <MenuItem value="Rpee">Rpee</MenuItem>
-                                            <MenuItem value="Travis">Travis</MenuItem>
-                                            <MenuItem value="Marwin">Marwin</MenuItem>
-                                            <MenuItem value="Raffy">Raffy</MenuItem>
-                                            <MenuItem value="Majo">Majo</MenuItem>
-                                            <MenuItem value="Ryan">Ryan</MenuItem>
-                                            <MenuItem value="Luna">Luna</MenuItem>
-                                            <MenuItem value="Alonzo">Alonzo</MenuItem>
-                                            <MenuItem value="Sean">Sean</MenuItem>
-                                            <MenuItem value="Martina">Martina</MenuItem>
-                                            <MenuItem value="Rocco">Rocco</MenuItem>
-                                            <MenuItem value="Zeny">Zeny</MenuItem>
-                                            <MenuItem value="Hansel">Hansel</MenuItem>
-                                            <MenuItem value="Hazel">Hazel</MenuItem>
-                                            <MenuItem value="Mark Liriel">Mark Liriel</MenuItem>
-                                            <MenuItem value="Noah">Noah</MenuItem>
-                                            <MenuItem value="Zoe">Zoe</MenuItem>
-                                            <MenuItem value="Sachi">Sachi</MenuItem>
-                                            <MenuItem value="Frances">Frances</MenuItem>
-                                            <MenuItem value="Richard">Richard</MenuItem>
-                                            <MenuItem value="Vincent">Vincent</MenuItem>
-                                            <MenuItem value="Charlize Kate">Charlize Kate</MenuItem>
-                                            <MenuItem value="Mark Haze">Mark Haze</MenuItem>
-                                            <MenuItem value="Mark Crylle">Mark Crylle</MenuItem>
-                                            <MenuItem value="Cardale">Cardale</MenuItem>
-                                            <MenuItem value="Yui">Yui</MenuItem>
-                                            <MenuItem value="Kratos">Kratos</MenuItem>
-                                            <MenuItem value="Katrina">Katrina</MenuItem>
-                                            <MenuItem value="Jamil">Jamil</MenuItem>
-                                            <MenuItem value="Dennis">Dennis</MenuItem>
-                                            <MenuItem value="Berna">Berna</MenuItem>
-                                            <MenuItem value="Felix">Felix</MenuItem>
-                                            <MenuItem value="Denise">Denise</MenuItem>
-                                            <MenuItem value="Anne">Anne</MenuItem>
-                                            <MenuItem value="Caelum">Caelum</MenuItem>
-                                            <MenuItem value="Danny">Danny</MenuItem>
-                                            <MenuItem value="Dan Marlou">Dan Marlou</MenuItem>
-                                            <MenuItem value="Daene">Daene</MenuItem>
-                                            <ListSubheader sx={{ color: 'black' }}>ESJ</ListSubheader>
-                                            <MenuItem value="Resty">Resty</MenuItem>
-                                            <MenuItem value="Lita">Lita</MenuItem>
-                                            <MenuItem value="Peen">Peen</MenuItem>
-                                            <MenuItem value="Fidel">Fidel</MenuItem>
-                                            <MenuItem value="Tessa">Tessa</MenuItem>
-                                            <MenuItem value="Kaye">Kaye</MenuItem>
-                                            <MenuItem value="TJ">TJ</MenuItem>
-                                            <MenuItem value="Gie">Gie</MenuItem>
-                                            <MenuItem value="Maeng">Maeng</MenuItem>
-                                            <MenuItem value="Joelle">Joelle</MenuItem>
-                                            <MenuItem value="Pam">Pam</MenuItem>
-                                            <ListSubheader sx={{ color: 'black' }}>CSJ</ListSubheader>
-                                            <MenuItem value="Clarita">Clarita</MenuItem>
-                                            <MenuItem value="Santy">Santy</MenuItem>
-                                            <MenuItem value="Shirley">Shirley</MenuItem>
-                                            <MenuItem value="Jodi">Jodi</MenuItem>
-                                            <MenuItem value="Crispin">Crispin</MenuItem>
-                                            <MenuItem value="Linda">Linda</MenuItem>
-                                            <MenuItem value="Crislyn">Crislyn</MenuItem>
-                                            <MenuItem value="Baba">Baba</MenuItem>
-                                            <MenuItem value="Renren">Renren</MenuItem>
-                                            <MenuItem value="Kulot">Kulot</MenuItem>
-                                            <MenuItem value="Julie">Julie</MenuItem>
-                                            <MenuItem value="MC">MC</MenuItem>
-                                            <MenuItem value="Ian">Ian</MenuItem>
-                                            <MenuItem value="Chy">Chy</MenuItem>
-                                        </Select>
+                                            value={values.first_name}
+                                            inputValue={inputValue}
+                                            onInputChange={(_event, newInputValue) => {
+                                                setInputValue(newInputValue);
+                                            }}
+                                            onChange={(_event, value) => setFieldValue('first_name', value.label)}
+                                            options={members}
+                                            groupBy={(option) => option.family}
+                                            renderInput={(params) => <TextField {...params} label="SJ Family Member" />}
+                                        />
                                     </FormControl>
 
                                     <FormControl
