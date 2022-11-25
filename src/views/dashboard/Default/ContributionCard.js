@@ -161,7 +161,7 @@ const ContributionCard = ({ isLoading }) => {
                                                 aria-describedby="alert-dialog-description"
                                             >
                                                 <DialogTitle variant="h3" align="center">
-                                                    RSJ Total: Php9000
+                                                    RSJ Total: Php8700
                                                 </DialogTitle>
                                                 <DialogContent align="center">
                                                     <p>Nita - Php700</p>
@@ -174,7 +174,7 @@ const ContributionCard = ({ isLoading }) => {
                                                     <p>Marwin - Php300</p>
                                                     <p>Diane(Raffy) - Php500</p>
                                                     <p>Majo - Php400</p>
-                                                    <p>Sean - Php400</p>
+                                                    <p>Sean - Php300</p>
                                                     <p>Zeny - Php500</p>
                                                     <p>Hazel - Php400</p>
                                                     <p>Frances - Php400</p>
@@ -185,7 +185,6 @@ const ContributionCard = ({ isLoading }) => {
                                                     <p>Denise - Php300</p>
                                                     <p>Danny - Php500</p>
                                                     <p>Dan Marlou - Php300</p>
-                                                    <p>Daene - Php300</p>
                                                 </DialogContent>
                                             </Dialog>
                                         </Grid>
@@ -210,14 +209,12 @@ const ContributionCard = ({ isLoading }) => {
                                                 aria-describedby="alert-dialog-description"
                                             >
                                                 <DialogTitle variant="h3" align="center">
-                                                    ESJ Total: Php2900
+                                                    ESJ Total: Php2600
                                                 </DialogTitle>
                                                 <DialogContent align="center">
                                                     <p>Lita - Php700</p>
                                                     <p>Peen - Php500</p>
                                                     <p>Tessa - Php300</p>
-                                                    <p>Kaye - Php300</p>
-                                                    <p>TJ - Php300</p>
                                                     <p>Gie - Php500</p>
                                                     <p>Joelle - Php300</p>
                                                     <p>Pam - Php300</p>
@@ -251,6 +248,7 @@ const ContributionCard = ({ isLoading }) => {
                                                     <p>Clarita - Php700</p>
                                                     <p>Santy - Php500</p>
                                                     <p>Crispin - Php500</p>
+                                                    <p>Crislyn - Php300</p>
                                                     <p>Baba - Php300</p>
                                                     <p>Renren - Php300</p>
                                                     <p>Kulot - Php500</p>
