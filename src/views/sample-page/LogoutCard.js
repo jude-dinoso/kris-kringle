@@ -34,10 +34,9 @@ const LogoutCard = ({ isLoading }) => {
                         <Formik
                             enableReinitialize
                             initialValues={{
-                                desc: '',
                                 submit: null
                             }}
-                            onSubmit={async ({ setErrors, setStatus, setSubmitting }) => {
+                            onSubmit={async (_values, { setErrors, setStatus, setSubmitting }) => {
                                 try {
                                     setSubmitting(true);
                                     signInFail();

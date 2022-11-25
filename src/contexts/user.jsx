@@ -222,5 +222,5 @@ const UserProvider = ({ children }) => {
         </AuthDispatchContext.Provider>
     );
 };
-UserProvider.propTypes = { children: PropTypes.element };
+UserProvider.propTypes = { children: PropTypes.arrayOf(PropTypes.element) };
 export default UserProvider;

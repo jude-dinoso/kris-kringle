@@ -104,7 +104,7 @@ const LoginCard = ({ isLoading }) => {
                         >
                             {({ errors, handleBlur, handleChange, handleSubmit, setFieldValue, isSubmitting, touched, values }) => (
                                 <form noValidate onSubmit={handleSubmit}>
-                                    <FormControl fullWidth>
+                                    <FormControl fullWidth sx={{ ...theme.typography.autoCompleteContainer }}>
                                         <Autocomplete
                                             id="outlined-adornment-email-login"
                                             type="first_name"
@@ -114,10 +114,16 @@ const LoginCard = ({ isLoading }) => {
                                             onInputChange={(_event, newInputValue) => {
                                                 setInputValue(newInputValue);
                                             }}
-                                            onChange={(_event, value) => setFieldValue('first_name', value.label)}
+                                            onChange={(_event, value) => setFieldValue('first_name', value?.label ?? null)}
                                             options={members}
                                             groupBy={(option) => option.family}
-                                            renderInput={(params) => <TextField {...params} label="SJ Family Member" />}
+                                            renderInput={(params) => (
+                                                <TextField
+                                                    {...params}
+                                                    label="SJ Family Member"
+                                                    sx={{ ...theme.typography.autoCompleteInput }}
+                                                />
+                                            )}
                                         />
                                     </FormControl>
 

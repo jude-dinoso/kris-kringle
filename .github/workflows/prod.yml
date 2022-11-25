@@ -1,4 +1,4 @@
-name: Node - SSH deploy
+name: Node - SSH Build
 
 # Controls when the action will run.
 on:
@@ -10,30 +10,19 @@ on:
 
 jobs:
     SFTP-deploy:
-        name: 🎉 Deploy
+        name: 🎉 Build
         runs-on: ubuntu-latest
 
         steps:
             - name: 🚚 Get latest code
               uses: actions/checkout@v2
 
-            - name: Use Node.js 16
+            - name: Use Node.js 17
               uses: actions/setup-node@v2-beta
               with:
-                  node-version: '16'
+                  node-version: '17'
 
             - name: 🔨 Build Project
               run: |
                   yarn
                   yarn build
-
-            - name: 📂 Deploy to Server
-              uses: easingthemes/ssh-deploy@v2.1.5
-              env:
-                  SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
-                  # ARGS: "-rltgoDzvO --delete"
-                  SOURCE: 'build/'
-                  REMOTE_HOST: 192.34.62.123
-                  REMOTE_USER: berry
-                  TARGET: public_html/
-                  EXCLUDE: '/dist/, /node_modules/'
