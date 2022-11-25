@@ -1,7 +1,11 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 
 // material-ui
-import { CardContent, Divider, Grid, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import { CardContent, Dialog, DialogTitle, Divider, Grid, Avatar, Typography, DialogContent } from '@mui/material';
+import PaymentsIcon from '@mui/icons-material/Payments';
+import SendToMobileIcon from '@mui/icons-material/SendToMobile';
 
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
@@ -11,6 +15,21 @@ import { gridSpacing } from 'store/constant';
 // ==============================|| DASHBOARD DEFAULT - POPULAR CARD ||============================== //
 
 const ContributionCard = ({ isLoading }) => {
+    const [open, setOpen] = React.useState(false);
+    const [openSRMC, setOpenSRMC] = React.useState(false);
+    const theme = useTheme();
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
+    const handleClickOpenSRMC = () => {
+        setOpenSRMC(true);
+    };
+    const handleCloseSRMC = () => {
+        setOpenSRMC(false);
+    };
     return (
         <>
             {isLoading ? (
@@ -114,7 +133,66 @@ const ContributionCard = ({ isLoading }) => {
                                     <Divider sx={{ my: 1.5 }} />
                                     <Grid item>
                                         <Typography variant="subtitle2" color="black">
-                                            Please submit contributions to Berna/Cely at SRMC by December 18.
+                                            Modes of payment:
+                                        </Typography>
+                                        <Grid container xs={12} align="center">
+                                            <Grid item xs={6}>
+                                                <Avatar
+                                                    variant="rounded"
+                                                    sx={{
+                                                        ...theme.typography.commonAvatar,
+                                                        ...theme.typography.medAvatar,
+                                                        backgroundColor: 'black',
+                                                        color: 'white',
+                                                        my: 1
+                                                    }}
+                                                    onClick={handleClickOpen}
+                                                >
+                                                    <SendToMobileIcon />
+                                                </Avatar>
+                                                <Dialog
+                                                    open={open}
+                                                    onClose={handleClose}
+                                                    aria-labelledby="alert-dialog-title"
+                                                    aria-describedby="alert-dialog-description"
+                                                >
+                                                    <DialogTitle variant="h3">GCash</DialogTitle>
+                                                    <DialogContent>
+                                                        <img
+                                                            src="https://pamortiz.net/SJReunion2017/assets/img/IMG_5066.jpg"
+                                                            alt="Gcash"
+                                                            width="200"
+                                                        />
+                                                    </DialogContent>
+                                                </Dialog>
+                                            </Grid>
+                                            <Grid item xs={6}>
+                                                <Avatar
+                                                    variant="rounded"
+                                                    sx={{
+                                                        ...theme.typography.commonAvatar,
+                                                        ...theme.typography.medAvatar,
+                                                        backgroundColor: 'black',
+                                                        color: 'white',
+                                                        my: 1
+                                                    }}
+                                                    onClick={handleClickOpenSRMC}
+                                                >
+                                                    <PaymentsIcon />
+                                                </Avatar>
+                                                <Dialog
+                                                    open={openSRMC}
+                                                    onClose={handleCloseSRMC}
+                                                    aria-labelledby="alert-dialog-title"
+                                                    aria-describedby="alert-dialog-description"
+                                                >
+                                                    <DialogTitle variant="h3">Manual</DialogTitle>
+                                                    <DialogContent>Directly pay by cash to Berna or Cely at SRMC.</DialogContent>
+                                                </Dialog>
+                                            </Grid>
+                                        </Grid>
+                                        <Typography variant="subtitle2" color="black">
+                                            Please submit contributions by December 18th.
                                         </Typography>
                                     </Grid>
                                 </Grid>

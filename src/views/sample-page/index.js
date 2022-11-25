@@ -48,7 +48,7 @@ const SamplePage = () => {
                     <Grid item lg={12} md={12} sm={12} xs={12}>
                         <Grid container spacing={gridSpacing}>
                             <Grid item sm={6} xs={12} md={6} lg={6}>
-                                <MainCard title="Your Monito/Monita's Wishlist (if any)" sx={{ backgroundColor: '#aedef0' }}>
+                                <MainCard title="Your Monito/Monita's Wishlist (if any)" sx={{ backgroundColor: '#aedef0', height: 420 }}>
                                     <MainCard sx={{ mt: 1.5, backgroundColor: '#4682b4', color: 'white' }}>Item #1: {r_wishlist1}</MainCard>
                                     <MainCard sx={{ mt: 2.9, backgroundColor: '#4682b4', color: 'white' }}>Item #2: {r_wishlist2}</MainCard>
                                     <MainCard sx={{ mt: 2.9, backgroundColor: '#4682b4', color: 'white' }}>Item #3: {r_wishlist3}</MainCard>
