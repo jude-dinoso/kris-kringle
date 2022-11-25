@@ -86,6 +86,31 @@ export default function themeTypography(theme) {
                 top: 0
             }
         },
+        autoCompleteContainer: {
+            marginY: 1,
+            '& legend': {
+                display: 'none'
+            },
+            '& fieldset': {
+                top: 0
+            }
+        },
+        autoCompleteInput: {
+            '& > label': {
+                top: 23,
+                left: 0,
+                color: theme.grey500,
+                '&[data-shrink="false"]': {
+                    top: 5
+                }
+            },
+            '& > div': {
+                padding: '0 !important'
+            },
+            '& > div > input': {
+                padding: '30.5px 14px 11.5px !important'
+            }
+        },
         mainContent: {
             backgroundColor: theme.background,
             width: '100%',
