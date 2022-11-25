@@ -114,7 +114,7 @@ const LoginCard = ({ isLoading }) => {
                                             onInputChange={(_event, newInputValue) => {
                                                 setInputValue(newInputValue);
                                             }}
-                                            onChange={(_event, value) => setFieldValue('first_name', value.label)}
+                                            onChange={(_event, value) => setFieldValue('first_name', value?.label ?? null)}
                                             options={members}
                                             groupBy={(option) => option.family}
                                             renderInput={(params) => <TextField {...params} label="SJ Family Member" />}
