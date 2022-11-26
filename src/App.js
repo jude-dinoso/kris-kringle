@@ -13,6 +13,9 @@ import themes from 'themes';
 // project imports
 import NavigationScroll from 'layout/NavigationScroll';
 
+// analytics imports
+import { Analytics } from '@vercel/analytics/react';
+
 // ==============================|| APP ||============================== //
 
 const App = () => {
@@ -25,6 +28,7 @@ const App = () => {
                     <CssBaseline />
                     <NavigationScroll>
                         <Routes />
+                        <Analytics />
                     </NavigationScroll>
                 </UserProvider>
             </ThemeProvider>
