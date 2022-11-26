@@ -134,7 +134,7 @@ const ContributionCard = ({ isLoading }) => {
                                 <Divider sx={{ my: 1.5 }} />
                                 <Grid item>
                                     <Typography variant="subtitle1" color="inherit">
-                                        Total contribution amount: Php15600
+                                        Total contribution amount: Php15000
                                     </Typography>
                                     <Typography variant="subtitle2" color="inherit">
                                         Contribution breakdown:
@@ -170,7 +170,7 @@ const ContributionCard = ({ isLoading }) => {
                                                     <p>Carl - Php300</p>
                                                     <p>Jan - Php300</p>
                                                     <p>Malou - Php500</p>
-                                                    <p>Rpee - Php300</p>
+                                                    <p>Rpee - Php400</p>
                                                     <p>Marwin - Php300</p>
                                                     <p>Diane(Raffy) - Php500</p>
                                                     <p>Majo - Php400</p>
