@@ -82,7 +82,6 @@ const TeamsCard = ({ isLoading }) => {
                                                 <p>Crislyn</p>
                                                 <p>Baba</p>
                                                 <p>MC</p>
-                                                <p>Martina</p>
                                                 <p>Noah</p>
                                                 <p>Rocco</p>
                                                 <p>Caelum</p>
@@ -102,7 +101,6 @@ const TeamsCard = ({ isLoading }) => {
                                                 <p>Edwin</p>
                                                 <p>Malou</p>
                                                 <p>Fidel</p>
-                                                <p>Peen</p>
                                                 <p>Santy</p>
                                                 <p>Shirley</p>
                                                 <p>Harold</p>
@@ -135,19 +133,18 @@ const TeamsCard = ({ isLoading }) => {
                                                 <p>Dennis</p>
                                                 <p>Hansel</p>
                                                 <p>Julie</p>
-                                                <p>Gie</p>
                                                 <p>Hazel</p>
                                                 <p>Mark Liriel</p>
                                                 <p>Katrina</p>
                                                 <p>Marwin</p>
-                                                <p>Joelle</p>
+                                                <p>Martina</p>
                                                 <p>Renren</p>
                                                 <p>TJ</p>
                                                 <p>Charlize Kate</p>
                                                 <p>Chy</p>
                                                 <p>Travis</p>
+                                                <p>Yui</p>
                                                 <p>Sachi</p>
-                                                <p></p>
                                             </center>
                                         </Typography>
                                     </Grid>
