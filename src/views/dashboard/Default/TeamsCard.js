@@ -52,7 +52,6 @@ const TeamsCard = ({ isLoading }) => {
                                                 <p>Ian</p>
                                                 <p>Dan Marlou</p>
                                                 <p>Mark Crylle</p>
-                                                <p>Yui</p>
                                                 <p>Grant</p>
                                                 <p>Luna</p>
                                             </center>
