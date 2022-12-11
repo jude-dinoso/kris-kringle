@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 // material-ui
 import { Typography } from '@mui/material';
 import { Grid } from '@mui/material';
-import DescCard from './DescCard';
 import LoginCard from 'views/dashboard/Default/LoginCard';
 import LogoutCard from './LogoutCard';
 import WishCard from './WishCard';
@@ -11,6 +10,10 @@ import { gridSpacing } from 'store/constant';
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
 import { AuthStateContext } from 'contexts/user';
+
+// switch between desc/guess
+//import DescCard from './DescCard';
+import GuessCard from './GuessCard';
 
 const SamplePage = () => {
     const [isLoading, setLoading] = useState(true);
@@ -43,7 +46,9 @@ const SamplePage = () => {
                         </MainCard>
                     </Grid>
                     <Grid item lg={4} md={4} sm={12} xs={12}>
-                        <DescCard isLoading={isLoading} />
+                        {/* switch between desc/guess */}
+                        {/* <DescCard isLoading={isLoading} /> */}
+                        <GuessCard isLoading={isLoading} />
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
                         <Grid container spacing={gridSpacing}>

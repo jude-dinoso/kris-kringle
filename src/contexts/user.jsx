@@ -14,6 +14,7 @@ const initialState = {
     r_wishlist2: '',
     r_wishlist3: '',
     desc: '',
+    guess: '',
     isLoggingIn: false
 };
 
@@ -36,6 +37,7 @@ const reducer = (state, action) => {
                 r_wishlist2: null,
                 r_wishlist3: null,
                 desc: null,
+                guess: null,
                 isLoggingIn: true
             };
         case 'LOGIN_SUCCESS':
@@ -52,6 +54,7 @@ const reducer = (state, action) => {
                 r_wishlist2: action.payload.r_wish_list_2,
                 r_wishlist3: action.payload.r_wish_list_3,
                 desc: action.payload.desc,
+                guess: action.payload.guess,
                 isLoggingIn: false
             };
         case 'UPDATE_SUCCESS':
@@ -68,6 +71,7 @@ const reducer = (state, action) => {
                 r_wishlist2: action.payload.r_wish_list_2,
                 r_wishlist3: action.payload.r_wish_list_3,
                 desc: action.payload.desc,
+                guess: action.payload.guess,
                 isLoggingIn: false
             };
         case 'LOGIN_FAILURE':
@@ -109,7 +113,8 @@ export async function signIn(dispatch, input) {
                         r_wish_list_1: userData.data.r_wl,
                         r_wish_list_2: userData.data.r_wl2,
                         r_wish_list_3: userData.data.r_wl3,
-                        desc: userData.data.description
+                        desc: userData.data.description,
+                        guess: userData.data.guess
                     }
                 });
                 return true;
@@ -155,7 +160,8 @@ export const updateWishList = (dispatch, input, first_name) => {
                         r_wish_list_1: userData.data.r_wl,
                         r_wish_list_2: userData.data.r_wl2,
                         r_wish_list_3: userData.data.r_wl3,
-                        desc: userData.data.description
+                        desc: userData.data.description,
+                        guess: userData.data.guess
                     }
                 });
             });
@@ -188,7 +194,8 @@ export const updateDescription = (dispatch, input, first_name) => {
                         r_wish_list_1: userData.data.r_wl,
                         r_wish_list_2: userData.data.r_wl2,
                         r_wish_list_3: userData.data.r_wl3,
-                        desc: userData.data.description
+                        desc: userData.data.description,
+                        guess: userData.data.guess
                     }
                 });
             })
@@ -196,7 +203,43 @@ export const updateDescription = (dispatch, input, first_name) => {
                 alert(err.data.detail);
             });
     } catch (err) {
-        console.error('hi', err);
+        console.error(err);
+    }
+};
+
+export const updateGuess = (dispatch, input, first_name) => {
+    try {
+        axios
+            .post('https://kris-kringle-backend.herokuapp.com/guess', null, {
+                params: {
+                    first_name: first_name,
+                    guess: input.guess
+                }
+            })
+            .then(function (response) {
+                const userData = { ...response };
+                localStorage.setItem('first_name', JSON.stringify(userData));
+                return dispatch({
+                    type: 'UPDATE_SUCCESS',
+                    payload: {
+                        first_name: first_name,
+                        recipient: userData.data.recipient,
+                        wish_list_1: userData.data.wish_list,
+                        wish_list_2: userData.data.wish_list_2,
+                        wish_list_3: userData.data.wish_list_3,
+                        r_wish_list_1: userData.data.r_wl,
+                        r_wish_list_2: userData.data.r_wl2,
+                        r_wish_list_3: userData.data.r_wl3,
+                        desc: userData.data.description,
+                        guess: userData.data.guess
+                    }
+                });
+            })
+            .catch((err) => {
+                alert(err.data.detail);
+            });
+    } catch (err) {
+        console.error(err);
     }
 };
 
