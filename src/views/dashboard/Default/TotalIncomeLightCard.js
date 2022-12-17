@@ -74,7 +74,7 @@ const TotalIncomeLightCard = ({ isLoading }) => {
                                     }}
                                     primary={
                                         <Typography variant="h4" color="white">
-                                            ESJ Family
+                                            RNS Family
                                         </Typography>
                                     }
                                     secondary={

@@ -81,7 +81,7 @@ const EarningCard = ({ isLoading }) => {
                                 <Grid container alignItems="center">
                                     <Grid item>
                                         <Typography sx={{ fontSize: '2.125rem', fontWeight: 500, mr: 1, mt: 1.75, mb: 0.75 }}>
-                                            12/25/2022
+                                            01/01/2023
                                         </Typography>
                                     </Grid>
                                 </Grid>
