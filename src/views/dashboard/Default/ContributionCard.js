@@ -134,7 +134,7 @@ const ContributionCard = ({ isLoading }) => {
                                 <Divider sx={{ my: 1.5 }} />
                                 <Grid item>
                                     <Typography variant="subtitle1" color="inherit">
-                                        Total contribution amount: Php15000
+                                        Total contribution amount: Php14600
                                     </Typography>
                                     <Typography variant="subtitle2" color="inherit">
                                         Contribution breakdown:
@@ -161,7 +161,7 @@ const ContributionCard = ({ isLoading }) => {
                                                 aria-describedby="alert-dialog-description"
                                             >
                                                 <DialogTitle variant="h3" align="center">
-                                                    RSJ Total: Php8700
+                                                    RSJ Total: Php8300
                                                 </DialogTitle>
                                                 <DialogContent align="center">
                                                     <p>Nita - Php700</p>
@@ -178,7 +178,6 @@ const ContributionCard = ({ isLoading }) => {
                                                     <p>Zeny - Php500</p>
                                                     <p>Hazel - Php400</p>
                                                     <p>Frances - Php400</p>
-                                                    <p>Mark - Php400</p>
                                                     <p>Katrina - Php400</p>
                                                     <p>Dennis - Php500</p>
                                                     <p>Felix - Php400</p>
