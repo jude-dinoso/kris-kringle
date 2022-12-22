@@ -11,7 +11,7 @@ const GetDesc = () => {
     const getDescription = () => {
         try {
             const descList = axios
-                .get('https://kris-kringle-backend.herokuapp.com/description_all')
+                .get('https://kris-kringle-backend.herokuapp.com/description_all_s')
                 .then(function (response) {
                     setDescList(response.data);
                 })
