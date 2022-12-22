@@ -92,7 +92,7 @@ const reducer = (state, action) => {
 export async function signIn(dispatch, input) {
     try {
         const flag = await axios
-            .post('https://kris-kringle-backend.herokuapp.com/login', null, {
+            .post('https://kris-kringle-backend.herokuapp.com/login_s', null, {
                 params: {
                     first_name: input.first_name,
                     password: input.password
@@ -137,7 +137,7 @@ export async function signIn(dispatch, input) {
 export const updateWishList = (dispatch, input, first_name) => {
     try {
         axios
-            .post('https://kris-kringle-backend.herokuapp.com/wishlist', null, {
+            .post('https://kris-kringle-backend.herokuapp.com/wishlist_s', null, {
                 params: {
                     first_name: first_name,
                     wish_list: input.wishlist1,
@@ -173,7 +173,7 @@ export const updateWishList = (dispatch, input, first_name) => {
 export const updateDescription = (dispatch, input, first_name) => {
     try {
         axios
-            .post('https://kris-kringle-backend.herokuapp.com/description', null, {
+            .post('https://kris-kringle-backend.herokuapp.com/description_s', null, {
                 params: {
                     first_name: first_name,
                     description: input.desc
@@ -210,7 +210,7 @@ export const updateDescription = (dispatch, input, first_name) => {
 export const updateGuess = (dispatch, input, first_name) => {
     try {
         axios
-            .post('https://kris-kringle-backend.herokuapp.com/guess', null, {
+            .post('https://kris-kringle-backend.herokuapp.com/guess_s', null, {
                 params: {
                     first_name: first_name,
                     guess: input.guess
