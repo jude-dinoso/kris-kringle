@@ -65,7 +65,7 @@ const TeamsCard = ({ isLoading }) => {
                                                 <p style={{ textTransform: 'capitalize' }}>fidel</p>
                                                 <p style={{ textTransform: 'capitalize' }}>ryan</p>
                                                 <p style={{ textTransform: 'capitalize' }}>ruthie</p>
-                                                <p style={{ textTransform: 'capitalize' }}>nevin</p>
+                                                <p style={{ textTransform: 'capitalize' }}>pam</p>
                                                 <p style={{ textTransform: 'capitalize' }}>maki</p>
                                                 <p style={{ textTransform: 'capitalize' }}>pikay</p>
                                                 <p style={{ textTransform: 'capitalize' }}>jas</p>
@@ -111,7 +111,7 @@ const TeamsCard = ({ isLoading }) => {
                                                 <p style={{ textTransform: 'capitalize' }}>rich</p>
                                                 <p style={{ textTransform: 'capitalize' }}>julius</p>
                                                 <p style={{ textTransform: 'capitalize' }}>tine</p>
-                                                <p style={{ textTransform: 'capitalize' }}>pam</p>
+                                                <p style={{ textTransform: 'capitalize' }}>nevin</p>
                                                 <p style={{ textTransform: 'capitalize' }}>biboy</p>
                                                 <p style={{ textTransform: 'capitalize' }}>reman</p>
                                                 <p style={{ textTransform: 'capitalize' }}>alphee</p>
