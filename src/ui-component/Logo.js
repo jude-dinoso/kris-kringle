@@ -11,7 +11,7 @@
 // ==============================|| LOGO SVG ||============================== //
 
 const Logo = () => {
-    return <img src="https://pamortiz.net/SJReunion2017/assets/img/SJLogo2022.png" alt="SJ2022" width="200" />;
+    return <img src="https://pamortiz.net/SJReunion2017/assets/img/SantosLogo2023.png" alt="Santos2023" width="200" />;
 };
 
 export default Logo;
