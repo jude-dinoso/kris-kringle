@@ -74,7 +74,7 @@ const TotalIncomeDarkCard = ({ isLoading }) => {
                                     }}
                                     primary={
                                         <Typography variant="h4" sx={{ color: '#fff' }}>
-                                            5PM onwards
+                                            3PM onwards
                                         </Typography>
                                     }
                                     secondary={
