@@ -62,12 +62,12 @@ const ContributionCard = ({ isLoading }) => {
                             <Grid item xs={12}>
                                 <Grid container alignContent="center" justifyContent="space-between">
                                     <Grid item>
-                                        <Typography variant="h4">Contributions & Penalties</Typography>
+                                        <Typography variant="h4">Penalty (Php20)</Typography>
                                         <Typography variant="body2">to be used for team and bingo prizes</Typography>
                                     </Grid>
                                 </Grid>
                             </Grid>
-                            <Grid item xs={6}>
+                            {/* <Grid item xs={6}>
                                 <Grid container direction="column">
                                     <Grid item>
                                         <Grid container alignItems="center" justifyContent="space-between">
@@ -262,25 +262,13 @@ const ContributionCard = ({ isLoading }) => {
                                         Contribution deadline: 12/18
                                     </Typography>
                                 </Grid>
-                            </Grid>
-                            <Grid item xs={6}>
+                            </Grid> */}
+                            <Grid item xs={12}>
                                 <Grid container direction="column">
                                     <Grid item>
-                                        <Grid container alignItems="center" justifyContent="space-between">
-                                            <Grid item>
-                                                <Typography variant="subtitle1" color="inherit">
-                                                    Php50
-                                                </Typography>
-                                            </Grid>
-                                        </Grid>
-                                    </Grid>
-                                    <Grid item>
-                                        <Typography variant="subtitle2">Penalty for:</Typography>
-                                        <Typography variant="subtitle2">- late submission of description (12/11)</Typography>
-                                        <Typography variant="subtitle2">- late submission of guess (12/21)</Typography>
-                                        <Typography variant="subtitle2">- incorrect secret santa guess</Typography>
-                                        <Typography variant="subtitle2">- correct guess by monito/monita</Typography>
-                                        <Typography variant="subtitle2">- wrong shirt color at event</Typography>
+                                        <Typography variant="subtitle1">Incorrect secret santa guess</Typography>
+                                        <Divider sx={{ my: 1.5 }} />
+                                        <Typography variant="subtitle1">Correct guess by monito/monita</Typography>
                                     </Grid>
                                     <Divider sx={{ my: 1.5 }} />
                                     <Grid item>

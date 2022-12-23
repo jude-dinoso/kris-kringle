@@ -8,7 +8,7 @@ const icons = { IconDashboard, IconGift, IconChristmasTree };
 
 const dashboard = {
     id: 'dashboard',
-    title: 'SJ Reunion 2022',
+    title: 'Santos Reunion 2023',
     type: 'group',
     children: [
         {

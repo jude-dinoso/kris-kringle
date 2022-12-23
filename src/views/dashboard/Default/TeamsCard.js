@@ -30,30 +30,23 @@ const TeamsCard = ({ isLoading }) => {
                             <Grid container sx={{ mt: 3.6 }} xs={12}>
                                 <Grid item xs={6} sm={3} md={3} lg={3} sx={{ mb: 1.5 }}>
                                     <Grid item xs={12}>
-                                        <Typography variant="h3" color="pink">
-                                            <center>Pink</center>
+                                        <Typography variant="h3" color="red">
+                                            <center>Red</center>
                                         </Typography>
                                     </Grid>
                                     <Grid item xs={12}>
-                                        <Typography variant="subtitle3" sx={{ color: 'pink' }}>
+                                        <Typography variant="subtitle3" sx={{ color: 'red' }}>
                                             <center>
-                                                <p>Rick</p>
-                                                <p>Baby</p>
-                                                <p>Nita</p>
-                                                <p>Maeng</p>
-                                                <p>Crispin</p>
-                                                <p>Linda</p>
-                                                <p>Berna</p>
-                                                <p>Jenn</p>
-                                                <p>Carl</p>
-                                                <p>Ryan</p>
-                                                <p>Pam</p>
-                                                <p>Denise</p>
-                                                <p>Ian</p>
-                                                <p>Dan Marlou</p>
-                                                <p>Mark Crylle</p>
-                                                <p>Grant</p>
-                                                <p>Luna</p>
+                                                <p style={{ textTransform: 'capitalize' }}>noli</p>
+                                                <p style={{ textTransform: 'capitalize' }}>cell</p>
+                                                <p style={{ textTransform: 'capitalize' }}>maeng</p>
+                                                <p style={{ textTransform: 'capitalize' }}>elmer</p>
+                                                <p style={{ textTransform: 'capitalize' }}>riz</p>
+                                                <p style={{ textTransform: 'capitalize' }}>tj</p>
+                                                <p style={{ textTransform: 'capitalize' }}>janelle</p>
+                                                <p style={{ textTransform: 'capitalize' }}>noemi</p>
+                                                <p style={{ textTransform: 'capitalize' }}>erika</p>
+                                                <p style={{ textTransform: 'capitalize' }}>emory</p>
                                             </center>
                                         </Typography>
                                     </Grid>
@@ -67,23 +60,16 @@ const TeamsCard = ({ isLoading }) => {
                                     <Grid item xs={12}>
                                         <Typography variant="subtitle3" sx={{ color: 'blue' }}>
                                             <center>
-                                                <p>Resty</p>
-                                                <p>Lita</p>
-                                                <p>Zeny</p>
-                                                <p>Raffy</p>
-                                                <p>Danny</p>
-                                                <p>Rpee</p>
-                                                <p>Jan</p>
-                                                <p>Mark Haze</p>
-                                                <p>Richard</p>
-                                                <p>Felix</p>
-                                                <p>Anne</p>
-                                                <p>Crislyn</p>
-                                                <p>Baba</p>
-                                                <p>MC</p>
-                                                <p>Noah</p>
-                                                <p>Rocco</p>
-                                                <p>Caelum</p>
+                                                <p style={{ textTransform: 'capitalize' }}>resty</p>
+                                                <p style={{ textTransform: 'capitalize' }}>lita</p>
+                                                <p style={{ textTransform: 'capitalize' }}>fidel</p>
+                                                <p style={{ textTransform: 'capitalize' }}>ryan</p>
+                                                <p style={{ textTransform: 'capitalize' }}>ruthie</p>
+                                                <p style={{ textTransform: 'capitalize' }}>nevin</p>
+                                                <p style={{ textTransform: 'capitalize' }}>maki</p>
+                                                <p style={{ textTransform: 'capitalize' }}>pikay</p>
+                                                <p style={{ textTransform: 'capitalize' }}>jas</p>
+                                                <p style={{ textTransform: 'capitalize' }}>zaccy</p>
                                             </center>
                                         </Typography>
                                     </Grid>
@@ -97,53 +83,39 @@ const TeamsCard = ({ isLoading }) => {
                                     <Grid item xs={12}>
                                         <Typography variant="subtitle3" sx={{ color: 'green' }}>
                                             <center>
-                                                <p>Edwin</p>
-                                                <p>Malou</p>
-                                                <p>Fidel</p>
-                                                <p>Santy</p>
-                                                <p>Shirley</p>
-                                                <p>Harold</p>
-                                                <p>Frances</p>
-                                                <p>Jamil</p>
-                                                <p>Majo</p>
-                                                <p>Sean</p>
-                                                <p>Daene</p>
-                                                <p>Vincent</p>
-                                                <p>Cardale</p>
-                                                <p>Zoe</p>
-                                                <p>Kratos</p>
-                                                <p>Jodi</p>
-                                                <p>Alonzo</p>
+                                                <p style={{ textTransform: 'capitalize' }}>precy</p>
+                                                <p style={{ textTransform: 'capitalize' }}>norman</p>
+                                                <p style={{ textTransform: 'capitalize' }}>jeanette</p>
+                                                <p style={{ textTransform: 'capitalize' }}>ichi</p>
+                                                <p style={{ textTransform: 'capitalize' }}>joan</p>
+                                                <p style={{ textTransform: 'capitalize' }}>anika</p>
+                                                <p style={{ textTransform: 'capitalize' }}>blake</p>
+                                                <p style={{ textTransform: 'capitalize' }}>gab</p>
+                                                <p style={{ textTransform: 'capitalize' }}>ellen</p>
+                                                <p style={{ textTransform: 'capitalize' }}>edge</p>
                                             </center>
                                         </Typography>
                                     </Grid>
                                 </Grid>
                                 <Grid item xs={6} sm={3} md={3} lg={3}>
                                     <Grid item xs={12}>
-                                        <Typography variant="h3" color="#9E9E9E">
-                                            <center>White</center>
+                                        <Typography variant="h3" color="#FCE205">
+                                            <center>Yellow</center>
                                         </Typography>
                                     </Grid>
                                     <Grid item xs={12}>
-                                        <Typography variant="subtitle3" sx={{ color: '#9E9E9E' }}>
+                                        <Typography variant="subtitle3" sx={{ color: '#FCE205' }}>
                                             <center>
-                                                <p>Clarita</p>
-                                                <p>Kulot</p>
-                                                <p>Dennis</p>
-                                                <p>Hansel</p>
-                                                <p>Julie</p>
-                                                <p>Hazel</p>
-                                                <p>Mark Liriel</p>
-                                                <p>Katrina</p>
-                                                <p>Marwin</p>
-                                                <p>Martina</p>
-                                                <p>Renren</p>
-                                                <p>TJ</p>
-                                                <p>Charlize Kate</p>
-                                                <p>Chy</p>
-                                                <p>Travis</p>
-                                                <p>Yui</p>
-                                                <p>Sachi</p>
+                                                <p style={{ textTransform: 'capitalize' }}>ineng</p>
+                                                <p style={{ textTransform: 'capitalize' }}>ej</p>
+                                                <p style={{ textTransform: 'capitalize' }}>rich</p>
+                                                <p style={{ textTransform: 'capitalize' }}>julius</p>
+                                                <p style={{ textTransform: 'capitalize' }}>tine</p>
+                                                <p style={{ textTransform: 'capitalize' }}>pam</p>
+                                                <p style={{ textTransform: 'capitalize' }}>biboy</p>
+                                                <p style={{ textTransform: 'capitalize' }}>reman</p>
+                                                <p style={{ textTransform: 'capitalize' }}>alphee</p>
+                                                <p style={{ textTransform: 'capitalize' }}>kite</p>
                                             </center>
                                         </Typography>
                                     </Grid>

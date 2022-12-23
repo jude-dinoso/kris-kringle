@@ -65,45 +65,7 @@ const PopularCard = ({ isLoading }) => {
                                     </Grid>
                                     <Grid item>
                                         <Typography variant="subtitle2" sx={{ color: theme.palette.orange.dark }}>
-                                            by Lola Lita
-                                        </Typography>
-                                    </Grid>
-                                </Grid>
-                                <Divider sx={{ my: 1.5 }} />
-                                <Grid container direction="column">
-                                    <Grid item>
-                                        <Grid container alignItems="center" justifyContent="space-between">
-                                            <Grid item>
-                                                <Grid container alignItems="center" justifyContent="space-between">
-                                                    <Grid item>
-                                                        <Typography variant="subtitle1" color="inherit">
-                                                            Message
-                                                        </Typography>
-                                                    </Grid>
-                                                </Grid>
-                                            </Grid>
-                                        </Grid>
-                                    </Grid>
-                                    <Grid item>
-                                        <Typography variant="subtitle2" sx={{ color: 'green' }}>
-                                            by Lola Clarita
-                                        </Typography>
-                                    </Grid>
-                                </Grid>
-                                <Divider sx={{ my: 1.5 }} />
-                                <Grid container direction="column">
-                                    <Grid item>
-                                        <Grid container alignItems="center" justifyContent="space-between">
-                                            <Grid item>
-                                                <Typography variant="subtitle1" color="inherit">
-                                                    Message
-                                                </Typography>
-                                            </Grid>
-                                        </Grid>
-                                    </Grid>
-                                    <Grid item>
-                                        <Typography variant="subtitle2" sx={{ color: theme.palette.orange.dark }}>
-                                            by Lola Nita
+                                            by Peen &amp; Gie
                                         </Typography>
                                     </Grid>
                                 </Grid>
@@ -120,7 +82,7 @@ const PopularCard = ({ isLoading }) => {
                                     </Grid>
                                     <Grid item>
                                         <Typography variant="subtitle2" sx={{ color: 'green' }}>
-                                            RSJ &gt; ESJ &gt; CSJ &gt; All
+                                            DNS &gt; RNS &gt; LNS &gt; MNS &gt; LSC &gt; All
                                         </Typography>
                                     </Grid>
                                 </Grid>
@@ -131,55 +93,6 @@ const PopularCard = ({ isLoading }) => {
                                             <Grid item>
                                                 <Typography variant="subtitle1" color="inherit">
                                                     Dinner
-                                                </Typography>
-                                            </Grid>
-                                        </Grid>
-                                    </Grid>
-                                    <Grid item>
-                                        <Typography variant="subtitle2" sx={{ color: theme.palette.orange.dark }}>
-                                            Food Assignments:
-                                        </Typography>
-                                        <Grid container spacing={gridSpacing}>
-                                            <Grid item xs={4}>
-                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
-                                                    <u>ESJ</u>
-                                                </Typography>
-                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
-                                                    Noodles (Pancit)
-                                                </Typography>
-                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
-                                                    Beef (Lengua)
-                                                </Typography>
-                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
-                                                    Pork (Lechon Kawali, Sisig)
-                                                </Typography>
-                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
-                                                    Veggies & Rice
-                                                </Typography>
-                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
-                                                    Dessert (Sorbetes)
-                                                </Typography>
-                                            </Grid>
-                                            <Grid item xs={4}>
-                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
-                                                    <u>RSJ</u>
-                                                </Typography>
-                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
-                                                    Soup (Molo)
-                                                </Typography>
-                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
-                                                    Fish
-                                                </Typography>
-                                            </Grid>
-                                            <Grid item xs={4}>
-                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
-                                                    <u>CSJ</u>
-                                                </Typography>
-                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
-                                                    Chicken (Cordon Bleu)
-                                                </Typography>
-                                                <Typography variant="subtitle2" sx={{ color: theme.palette.error.light }}>
-                                                    Softdrinks
                                                 </Typography>
                                             </Grid>
                                         </Grid>
@@ -283,7 +196,7 @@ const PopularCard = ({ isLoading }) => {
                                     </Grid>
                                     <Grid item>
                                         <Typography variant="subtitle2" sx={{ color: theme.palette.orange.dark }}>
-                                            by Peen & Gie
+                                            by Lolo Resty
                                         </Typography>
                                     </Grid>
                                 </Grid>

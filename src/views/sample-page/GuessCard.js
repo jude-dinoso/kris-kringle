@@ -180,7 +180,7 @@ const GuessCard = ({ isLoading }) => {
                                                             renderInput={(params) => (
                                                                 <TextField
                                                                     {...params}
-                                                                    label="SJ Family Member"
+                                                                    label="Santos Family Member"
                                                                     sx={{ ...theme.typography.autoCompleteInput }}
                                                                 />
                                                             )}
