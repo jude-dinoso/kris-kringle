@@ -269,8 +269,11 @@ const ContributionCard = ({ isLoading }) => {
                                         <Typography variant="subtitle1">Incorrect secret santa guess</Typography>
                                         <Divider sx={{ my: 1.5 }} />
                                         <Typography variant="subtitle1">Correct guess by monito/monita</Typography>
+                                        <Divider sx={{ my: 1.5 }} />
+                                        <Typography variant="subtitle1">Wrong shirt color</Typography>
+                                        <Divider sx={{ my: 1.5 }} />
                                     </Grid>
-                                    <Divider sx={{ my: 1.5 }} />
+                                    {/* <Divider sx={{ my: 1.5 }} />
                                     <Grid item>
                                         <Typography variant="subtitle2" color="inherit">
                                             Modes of payment:
@@ -331,7 +334,7 @@ const ContributionCard = ({ isLoading }) => {
                                                 </Dialog>
                                             </Grid>
                                         </Grid>
-                                    </Grid>
+                                    </Grid> */}
                                 </Grid>
                             </Grid>
                         </Grid>
