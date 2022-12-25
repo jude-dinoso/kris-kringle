@@ -151,7 +151,7 @@ const GuessCard = ({ isLoading }) => {
                                                     </MainCard>
                                                     <Button
                                                         disableElevation
-                                                        disabled={isSubmitting}
+                                                        disabled
                                                         fullWidth
                                                         size="small"
                                                         type="button"
@@ -191,7 +191,7 @@ const GuessCard = ({ isLoading }) => {
                                                         <AnimateButton>
                                                             <Button
                                                                 disableElevation
-                                                                disabled={isSubmitting}
+                                                                disabled
                                                                 fullWidth
                                                                 size="small"
                                                                 type="submit"
