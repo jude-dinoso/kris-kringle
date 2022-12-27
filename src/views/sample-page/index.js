@@ -12,8 +12,8 @@ import MainCard from 'ui-component/cards/MainCard';
 import { AuthStateContext } from 'contexts/user';
 
 // switch between desc/guess
-import DescCard from './DescCard';
-// import GuessCard from './GuessCard';
+// import DescCard from './DescCard';
+import GuessCard from './GuessCard';
 
 const SamplePage = () => {
     const [isLoading, setLoading] = useState(true);
@@ -47,8 +47,8 @@ const SamplePage = () => {
                     </Grid>
                     <Grid item lg={4} md={4} sm={12} xs={12}>
                         {/* switch between desc/guess */}
-                        <DescCard isLoading={isLoading} />
-                        {/* <GuessCard isLoading={isLoading} /> */}
+                        {/* <DescCard isLoading={isLoading} /> */}
+                        <GuessCard isLoading={isLoading} />
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
                         <Grid container spacing={gridSpacing}>
